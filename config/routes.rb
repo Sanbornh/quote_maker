@@ -2,6 +2,7 @@ QuoteMaker::Application.routes.draw do
 
   root to: 'wallpapers#new'
   resources :wallpapers, only: [:new, :create]
+  get '/preview/:id', to: 'wallpapers#preview', as: :preview
 
 
   # The priority is based upon order of creation: first created -> highest priority.
