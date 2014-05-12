@@ -1,0 +1,26 @@
+<%= form_for @wallpaper do |f| %>
+	<div id="quote_field">
+		<%= f.text_area :quote, placeholder: "Enter a quote." %>
+	</div>
+
+	<div id="colour_field">
+		<%= f.label "red" %>
+		<%= f.radio_button :colour_scheme, "red" %>
+		<%= f.label "green" %>
+		<%= f.radio_button :colour_scheme, "green" %>
+		<%= f.label "blue" %>
+		<%= f.radio_button :colour_scheme, "blue" %>
+	</div>
+
+	<div id="layout_field">
+		<%= f.label "top" %>
+		<%= f.radio_button :layout_scheme, "top" %>
+		<%= f.label "middle" %>
+		<%= f.radio_button :layout_scheme, "middle" %>
+		<%= f.label "bottom" %>
+		<%= f.radio_button :layout_scheme, "bottom" %>
+	</div>
+
+	<%= f.submit %>
+
+<% end %>
