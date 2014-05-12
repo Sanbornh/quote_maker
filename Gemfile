@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+# Use Hirb for displaying tables in CLI
+gem 'hirb'
+
+# Use Pry for debugging
+gem 'pry'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
