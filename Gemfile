@@ -1,10 +1,5 @@
 source 'https://rubygems.org'
 
-# Use Hirb for displaying tables in CLI
-gem 'hirb'
-
-# Use Pry for debugging
-gem 'pry'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
@@ -28,7 +23,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -41,7 +36,11 @@ end
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
+	gem 'hirb'
+	gem 'pry'
 end
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
