@@ -17,6 +17,7 @@ class WallpapersController < ApplicationController
 
 	def preview
 		@wallpaper = Wallpaper.find(params[:id])
+		Wallpaper.create_image(@wallpaper)
 	end
 
 	private
