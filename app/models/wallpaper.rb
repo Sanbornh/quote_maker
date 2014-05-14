@@ -23,7 +23,7 @@ class Wallpaper < ActiveRecord::Base
 
 	def self.set_styling
 		text = Magick::Draw.new
-		text.font_family = 'helvetica'
+		text.font = "#{Rails.root}/lib/fonts/Cardo-Regular.ttf"
 		text.pointsize = 150
 		text.gravity = Magick::CenterGravity
 
