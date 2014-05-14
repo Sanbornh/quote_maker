@@ -85,6 +85,7 @@ GEM
     rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    rmagick (2.13.2)
     rspec-collection_matchers (0.0.2)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.0.beta1)
@@ -146,6 +147,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 4.0.4)
+  rmagick (= 2.13.2)
   rspec-rails
   sass-rails (~> 4.0.2)
   sdoc

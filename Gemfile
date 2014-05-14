@@ -40,7 +40,7 @@ group :development, :test do
 	gem 'pry'
 end
 
-
+gem 'rmagick', '2.13.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
