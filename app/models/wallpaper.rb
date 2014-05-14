@@ -1,5 +1,7 @@
 class Wallpaper < ActiveRecord::Base
 
+	belongs_to :colour_scheme
+
 	def self.create_image(wallpaper)
 		# @wallpaper = wallpaper
 		color = wallpaper.colour_scheme
@@ -32,7 +34,6 @@ class Wallpaper < ActiveRecord::Base
 
 	def self.composite_image(styling, quote)
 		styling.annotate(@@canvas, 0, 0, 0, 0, quote) { self.fill = 'white'}
-
 	end
 
 	def self.save_image
