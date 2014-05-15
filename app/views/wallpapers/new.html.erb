@@ -1,26 +1,34 @@
-<%= form_for @wallpaper do |f| %>
-	<div id="quote_field">
-		<%= f.text_area :quote, placeholder: "Enter a quote." %>
-	</div>
 
-	<div id="colour_field">
-		<%= f.label "red" %>
-		<%= f.radio_button :colour_scheme, "red" %>
-		<%= f.label "green" %>
-		<%= f.radio_button :colour_scheme, "green" %>
-		<%= f.label "blue" %>
-		<%= f.radio_button :colour_scheme, "blue" %>
-	</div>
+<div id="container">
+	<div id="arrow_left"><%= image_tag("left.png") %></div>
 
-	<div id="layout_field">
-		<%= f.label "top" %>
-		<%= f.radio_button :layout_scheme, "top" %>
-		<%= f.label "middle" %>
-		<%= f.radio_button :layout_scheme, "middle" %>
-		<%= f.label "bottom" %>
-		<%= f.radio_button :layout_scheme, "bottom" %>
-	</div>
+	<%= form_for @wallpaper do |f| %>
+		<div id="quote_field">
+			<%= f.text_area :quote, placeholder: "Enter a quote." %>
+		</div>
 
-	<%= f.submit %>
+		<div id="colour_field"/>
+			<%= f.label "red" %>
+			<%= f.radio_button :colour_scheme, "red" %>
+			<%= f.label "green" %>
+			<%= f.radio_button :colour_scheme, "green" %>
+			<%= f.label "blue" %>
+			<%= f.radio_button :colour_scheme, "blue" %>
+		</div>
 
-<% end %>
+		<div id="layout_field">
+			<%= f.label "top" %>
+			<%= f.radio_button :layout_scheme, "top" %>
+			<%= f.label "middle" %>
+			<%= f.radio_button :layout_scheme, "middle" %>
+			<%= f.label "bottom" %>
+			<%= f.radio_button :layout_scheme, "bottom" %>
+		</div>
+		
+		<div id="submit_field">
+			<%= f.submit "Preview" %>
+		</div>	
+	<% end %>
+	
+	<div id="arrow_right"><%= image_tag("right.png") %></div>
+</div>
