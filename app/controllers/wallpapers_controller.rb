@@ -8,7 +8,6 @@ class WallpapersController < ApplicationController
 		@wallpaper = Wallpaper.new(wallpaper_params)
 
 		if @wallpaper.save
-			# binding.pry
 			redirect_to preview_path(@wallpaper.id)
 		else
 			render :new

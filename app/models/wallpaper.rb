@@ -20,7 +20,6 @@ class Wallpaper < ActiveRecord::Base
 	def draw_background
 		color = self.colour_scheme.background	
 		image = @canvas.new_image(2880, 1800) { self.background_color = color }
-		
 	end
 
 	def set_styling
