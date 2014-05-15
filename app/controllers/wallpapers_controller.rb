@@ -8,7 +8,7 @@ class WallpapersController < ApplicationController
 		@wallpaper = Wallpaper.new(wallpaper_params)
 
 		if @wallpaper.save
-			# cookies[:wallpaper_id] = @wallpaper.id
+			# binding.pry
 			redirect_to preview_path(@wallpaper.id)
 		else
 			render :new
@@ -17,12 +17,12 @@ class WallpapersController < ApplicationController
 
 	def preview
 		@wallpaper = Wallpaper.find(params[:id])
-		Wallpaper.create_image(@wallpaper)
+		@wallpaper.create_image
 	end
 
 	private
 	def wallpaper_params
-		params.require(:wallpaper).permit(:quote, :colour_scheme, :layout_scheme)
+		params.require(:wallpaper).permit(:quote, :colour_scheme_id, :layout_scheme)
 	end
 
 end
