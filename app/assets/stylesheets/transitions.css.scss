@@ -15,34 +15,35 @@ html, body{
 	bottom:0;
 	margin: auto;
 }
+
 #arrow_left{
-	background-color:$background-color;
 	display:none;
-	border:$test_border;
-	position:fixed;
-	width:auto;
- 	left:arrow_side_margin;
+ 	left:$arrow_side_margin;
  	top:$arrow_top_margin;
  	opacity:$arrow_opacity;
  	z-index: 1;
 }
 #arrow_right{
-	background-color:$background-color;
 	display:auto;
-	border:$test_border;
-	position:fixed;
-	width:auto;
 	right:$arrow_side_margin;
 	top:$arrow_top_margin;
 	opacity:$arrow_opacity;
 	z-index:1;
 }
-
+#arrow_left, #arrow_right{
+	background-color:$background-color;
+	border:$test_border;
+	position:fixed;
+	width:auto;
+}
 #arrow_left:hover, #arrow_right:hover{
 	opacity:1;
 }
+#arrow_right:active{
+	opacity:0.7;
+}
 
-#quote_field, #colour_field, #layout_field{
+#quote_field, #colour_field, #layout_field, #submit_field{
 	position:absolute;
 	top:0;
 	left:0;
@@ -72,9 +73,16 @@ html, body{
 }
 
 #layout_field{
-	display:none;
+	border:$test_border;
+	height:9rem;
+	width:19.5rem;
+	margin-right:10%;
+	opacity:0;
 }
 
 #submit_field{
-	display:none;
+	height:9rem;
+	width:19.5rem;
+	margin-right:10%;
+	opacity:0;		
 }
