@@ -1,11 +1,9 @@
 html, body{
 	height:100%;
 	width:100%;
-}
-
-body{
 	position:relative;
 }
+
 #container{
 	border:$test_border;
 	position:relative;
@@ -51,8 +49,7 @@ body{
 	right:0;
 	bottom:0;
 	margin: auto;
-	z-index:$z-index-fields;
-};
+}
 
 #quote_field{
 	border:$test_border;
@@ -75,9 +72,9 @@ body{
 }
 
 #layout_field{
-	opacity:0;
+	display:none;
 }
 
 #submit_field{
-	opacity:0;
+	display:none;
 }
