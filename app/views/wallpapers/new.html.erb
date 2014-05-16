@@ -9,11 +9,11 @@
 
 		<div id="colour_field">
 			<%= f.label "blue" %>
-			<%= f.radio_button :colour_scheme_id, "1" %>
+			<%= f.radio_button :colour_scheme_id, @colour_schemes[0].id %>
 			<%= f.label "red" %>
-			<%= f.radio_button :colour_scheme_id, "2" %>
+			<%= f.radio_button :colour_scheme_id, @colour_schemes[1].id %>
 			<%= f.label "green" %>
-			<%= f.radio_button :colour_scheme_id, "3" %>
+			<%= f.radio_button :colour_scheme_id, @colour_schemes[2].id %>
 		</div>
 
 		<div id="layout_field">
