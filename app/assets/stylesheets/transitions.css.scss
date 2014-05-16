@@ -51,11 +51,15 @@ html, body{
 	bottom:0;
 	margin: auto;
 }
+#colour_field, #layout_field, #submit_field{
+	
+}
 
 #quote_field{
 	border:$test_border;
 	height:9rem;
 	width:19.5rem;
+	z-index: 0;
 	
 
 	textarea{
@@ -68,21 +72,34 @@ html, body{
 	border:$test_border;
 	height:9rem;
 	width:19.5rem;
-	margin-right:10%;
+	margin-right: $field_start_pos;
 	opacity:0;
+	z-index: 0;
 }
 
 #layout_field{
 	border:$test_border;
 	height:9rem;
 	width:19.5rem;
-	margin-right:10%;
+	margin-right: $field_start_pos;
 	opacity:0;
+	z-index: 0;
 }
 
 #submit_field{
 	height:9rem;
 	width:19.5rem;
-	margin-right:10%;
+	margin-right: $field_start_pos;
 	opacity:0;		
+	z-index: 0;
 }
+
+#preview{
+	display:absolute;
+	height:4rem;
+	width:10rem;
+	margin-left: 20%;
+	margin-top: 10%;
+}
+
+

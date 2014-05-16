@@ -2,17 +2,18 @@ $(document).ready(function(){
 	var time = 750;
 	var click = 0;
 
+
 	function moveHide(target){
 		$(target).animate({
-    	marginLeft:"-=20%",
+    	marginLeft:"-=60%",
     	opacity:"0"
 		},time);
 	}
 
 	function moveShow(target){
 		$(target).animate({
-	    	marginLeft:"-=20%",
-	    	opacity:"1"
+	    	marginLeft:"-=60%",
+	    	opacity:"1"	    	
 	    },time);
 	}
 
@@ -23,6 +24,7 @@ $(document).ready(function(){
 
 		if(click==2){
 			moveHide("#layout_field");
+			$("submit_field").css("display","auto");
 			moveShow("#submit_field");
 			$("#arrow_right").fadeOut();
 		}

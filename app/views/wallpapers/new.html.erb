@@ -1,3 +1,4 @@
+<div id="test"></div>
 <div id="container">
 	<div id="arrow_left"><%= image_tag("left.png") %></div>
 
@@ -25,7 +26,7 @@
 		</div>
 		
 		<div id="submit_field">
-			<%= f.submit "Preview" %>
+			<%= f.submit "Preview", id: "preview" %>
 		</div>	
 	<% end %>
 	
