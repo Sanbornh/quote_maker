@@ -1,9 +1,26 @@
 $test_border: none;
-$arrow_top_margin: 15rem;
+$arrow_top_margin: 37%;
 
-$arrow_side_margin: 20%;
+$arrow_side_margin: 12%;
 $arrow_opacity: 0.7;
 
 $background-color:white;
-$field_start_pos: -30%;
 
+$field_start_pos: -30%;
+$field_height: 32%;
+$field_width: 40%;
+
+//colour scheme 1
+$c1_bg:#193441;
+$c1_font:#fcfff5;
+$c1_highlight:#d1dbbd;
+
+//colour scheme 2
+$c2_bg:#76111c;
+$c2_font:#fffbf7;
+$c2_highlight:#d29d9e;
+
+//colour scheme 3
+$c3_bg:#0e5e26;
+$c3_font:#f9fff7;
+$c3_highlight:#c0e5b4;

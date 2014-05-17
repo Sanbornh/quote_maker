@@ -18,9 +18,6 @@ $(document).ready(function(){
 	}
 
 	$("#arrow_right").click(function(){
-		$(this).on("down",function(){
-			$(this).css("opacity","0.7");
-		});
 
 		if(click==2){
 			moveHide("#layout_field");
@@ -43,8 +40,6 @@ $(document).ready(function(){
 		}
 	});
 
-	$("#arrow_left").click(function(){
-
-	})
+	
 
 });

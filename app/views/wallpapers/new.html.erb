@@ -7,13 +7,31 @@
 			<%= f.text_area :quote, placeholder: "Enter a quote." %>
 		</div>
 
-		<div id="colour_field">
-			<%= f.label "blue" %>
-			<%= f.radio_button :colour_scheme_id, @colour_schemes[0].id %>
-			<%= f.label "red" %>
-			<%= f.radio_button :colour_scheme_id, @colour_schemes[1].id %>
-			<%= f.label "green" %>
-			<%= f.radio_button :colour_scheme_id, @colour_schemes[2].id %>
+		<div id="colour_field">	
+			<div id="swatch_wrapper">	
+				<div class="swatch">
+					<div></div>
+					<div></div>
+					<div></div>
+					<!-- :colour_scheme_id  @colour_schemes[0].id  -->
+				</div>
+				
+				
+				<div class="swatch">
+					<div></div>
+					<div></div>
+					<div></div>
+				  <!-- :colour_scheme_id, @colour_schemes[1].id -->
+				</div>
+				
+				
+				<div class="swatch">
+					<div></div>
+					<div></div>
+					<div></div>
+					<!-- :colour_scheme_id, @colour_schemes[2].id -->
+				</div>
+			</div>
 		</div>
 
 		<div id="layout_field">
