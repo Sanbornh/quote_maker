@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Used to connect to amazon s3 for image storage
+gem 'aws-s3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
