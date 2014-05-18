@@ -1,14 +1,40 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+html,body,div{
+	box-sizing:border-box;
+}
+
 html, body{
 	height:100%;
 	width:100%;
 	position:relative;
+	font-size: 18px;
+
 }
 
 #container{
 	border:$test_border;
 	position:relative;
-	height:30rem;
-	width:40rem;
+	height:85%;
+	width:80%;
 	top:10%;
 	left:0;
 	right:0;
@@ -33,7 +59,7 @@ html, body{
 #arrow_left, #arrow_right{
 	background-color:$background-color;
 	border:$test_border;
-	position:fixed;
+	position:absolute;
 	width:auto;
 }
 #arrow_left:hover, #arrow_right:hover{
@@ -52,13 +78,13 @@ html, body{
 	margin: auto;
 }
 #colour_field, #layout_field, #submit_field{
-	
+	position:absolute;
 }
 
 #quote_field{
 	border:$test_border;
-	height:9rem;
-	width:19.5rem;
+	height:$field_height;
+	width:$field_width;
 	z-index: 0;
 	
 
@@ -70,25 +96,27 @@ html, body{
 
 #colour_field{
 	border:$test_border;
-	height:9rem;
-	width:19.5rem;
+	height:42%;
+	width:50%;
 	margin-right: $field_start_pos;
+	padding:0;
 	opacity:0;
 	z-index: 0;
 }
 
 #layout_field{
 	border:$test_border;
-	height:9rem;
-	width:19.5rem;
+	height:$field_height;
+	width:$field_width;
 	margin-right: $field_start_pos;
 	opacity:0;
 	z-index: 0;
 }
 
 #submit_field{
-	height:9rem;
-	width:19.5rem;
+	border:$test_border;
+	height:$field_height;
+	width:$field_width;
 	margin-right: $field_start_pos;
 	opacity:0;		
 	z-index: 0;
@@ -96,10 +124,86 @@ html, body{
 
 #preview{
 	display:absolute;
-	height:4rem;
-	width:10rem;
+	height:50%;
+	width:60%;
 	margin-left: 20%;
 	margin-top: 10%;
 }
+
+#swatch_wrapper{
+	border:$test_border;
+	position:absolute;
+	padding-left:15%;
+	padding-right:15%;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;	
+}
+
+.swatch{
+	border:1px solid black;
+	height:100%;
+	width:5rem;
+	float:left;
+	margin-top:0;
+	margin-bottom:0;
+	margin-right:1.5%;
+	margin-left:1.5%;
+}
+
+.swatch:nth-child(1){
+	div:nth-child(1){
+		background-color: $c1_bg;
+		height:33%;
+	}
+	div:nth-child(2){
+		background-color: $c1_font;
+		height:34%;
+	}
+	div:nth-child(3){
+		background-color: $c1_highlight;
+		height:33%;
+	}
+}
+
+.swatch:nth-child(2){
+	div:nth-child(1){
+		background-color: $c2_bg;
+		height:33%;
+	}
+	div:nth-child(2){
+		background-color: $c2_font;
+		height:34%;
+	}
+	div:nth-child(3){
+		background-color: $c2_highlight;
+		height:33%;
+	}
+}
+
+.swatch:nth-child(3){
+	div:nth-child(1){
+		background-color: $c3_bg;
+		height:33%;
+	}
+	div:nth-child(2){
+		background-color: $c3_font;
+		height:34%;
+	}
+	div:nth-child(3){
+		background-color: $c3_highlight;
+		height:33%;
+	}
+}
+.swatch[button]{
+	height:100px;
+	width:100px;
+	background-color: tomato;
+}
+
+
+
 
 

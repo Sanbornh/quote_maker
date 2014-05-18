@@ -4,16 +4,41 @@
 
 	<%= form_for @wallpaper do |f| %>
 		<div id="quote_field">
-			<%= f.text_area :quote, placeholder: "Enter a quote." %>
+			<%= f.text_area :quote, placeholder: "Enter a quote" %>
 		</div>
 
-		<div id="colour_field">
-			<%= f.label "blue" %>
-			<%= f.radio_button :colour_scheme_id, @colour_schemes[0].id %>
-			<%= f.label "red" %>
-			<%= f.radio_button :colour_scheme_id, @colour_schemes[1].id %>
-			<%= f.label "green" %>
-			<%= f.radio_button :colour_scheme_id, @colour_schemes[2].id %>
+		<div id="colour_field">	
+			<div id="swatch_wrapper">
+				<a href="#">	
+					<div class="swatch">
+						<div></div>
+						<div></div>
+						<div></div>
+						<%= f.hidden_field :colour_scheme_id, value: :colour_scheme[0] %>
+						<!-- :colour_scheme_id  @colour_schemes[0].id from the old code --> 
+					</div>
+				</a>
+				
+				<div class="swatch">
+					<a href="#">
+						<div></div>
+						<div></div>
+						<div></div>
+						<%= f.hidden_field :colour_scheme_id, value: :colour_scheme[1] %>
+					  <!-- :colour_scheme_id, @colour_schemes[1].id -->
+					</a>
+				</div>
+				
+				
+				<div class="swatch">
+					<a href="#">
+						<div></div>
+						<div></div>
+						<div></div>
+						<%= f.hidden_field :colour_scheme_id, value: :colour_scheme[2] %>						
+					</a>
+				</div>
+			</div>
 		</div>
 
 		<div id="layout_field">
