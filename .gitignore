@@ -18,5 +18,10 @@
 # Ignore .DS_STORE
 .DS_Store
 
+
+#Ignore testingRmagickRails.jpg
+/testingRmagickRails.jpg
+
 # Ignore login credentials for s3
 /config/s3.yml
+
