@@ -1,9 +1,5 @@
-<%# stylesheet_link_tag  "#{@wallpaper.colour_scheme}", media: "all" %>
-<%# stylesheet_link_tag  "#{@wallpaper.layout_scheme}", media: "all" %>
-
-
 <div id="preview-background" data-background-color= <%= @wallpaper.colour_scheme.background %>>
-	<div id="quote">
+	<div id="quote" data-font-color= <%= @wallpaper.colour_scheme.font %>>
 		<%= @wallpaper.quote %>
 	</div>
 </div>
