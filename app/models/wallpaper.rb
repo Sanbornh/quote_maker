@@ -2,7 +2,7 @@ class Wallpaper < ActiveRecord::Base
 
 	belongs_to :colour_scheme
 
-		def create_image
+	def create_image
 		make_canvas
 		draw_background
 		set_styling
@@ -38,15 +38,16 @@ class Wallpaper < ActiveRecord::Base
 	end
 
 	def save_image
-		AWS.config(access_key_id: S3_CREDENTIALS["access_key_id"], secret_access_key: S3_CREDENTIALS["secret_access_key"], region: 'us-west-2')
-		s3 = AWS::S3.new
+		s3 = AWS::S3.new(
+		  access_key_id:     S3_CREDENTIALS["access_key_id"],
+		  secret_access_key: S3_CREDENTIALS["secret_access_key"],
+		  region: "us-west-2"
+		)
+
 		bucket = s3.buckets[S3_CREDENTIALS["bucket"]]
 
-
 		@canvas.format = 'jpg'
-		blob = @canvas.to_blob
-		
-		obj = bucket.objects["wallpaper.jpg"].write(blob)
+		bucket.objects["wallpaper.jpg"].write(@canvas.to_blob)
 
 		# @canvas.write('testingRmagickRails.jpg')
 	end
