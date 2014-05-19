@@ -10,22 +10,14 @@
 		<div id="colour_field">	
 
 			<div id="swatch_wrapper"> 
-				
-				<%= f.radio_button :colour_scheme_id, :colour_schemes[0] %>
+				<%= f.radio_button :colour_scheme_id, @colour_schemes[0].id %>
 				<%= f.label :colour_scheme_id, :colour_schemes[0], value: :colour_schemes[0], id: "first"  %>
 				
-			
-				
-				
-				<%= f.radio_button :colour_scheme_id, :colour_schemes[1] %>
+				<%= f.radio_button :colour_scheme_id, @colour_schemes[1].id %>
 				<%= f.label :colour_scheme_id, :colour_schemes[1], value: :colour_schemes[1], id: "second" %>
 				
-				
-				
-				
-				<%= f.radio_button :colour_scheme_id, :colour_schemes[2] %>
+				<%= f.radio_button :colour_scheme_id, @colour_schemes[2].id %>
 				<%= f.label :colour_scheme_id, :colour_schemes[2], value: :colour_schemes[2], id: "third" %>
-				
 			</div>
 		</div>
 
