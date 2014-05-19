@@ -1,0 +1,11 @@
+@mixin swatch-colours($background, $font, $highlight) {
+	color: $background;
+	background-color: $background;
+ 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$c1_bg, endColorstr=$c1_bg);
+	background-image:-moz-linear-gradient(top, $background 0%, $background 33%, $highlight 33%, $highlight 67%, $font 67%, $font 100%);
+	background-image:linear-gradient(top, $background 0%, $background 33%, $highlight 33%, $highlight 67%, $font 67%, $font 100%);
+	background-image:-webkit-linear-gradient(top, $background 0%, $background 33%, $highlight 33%, $highlight 67%, $font 67%, $font 100%);
+	background-image:-o-linear-gradient(top, $background 0%, $background 33%, $highlight 33%, $highlight 67%, $font 67%, $font 100%);
+	background-image:-ms-linear-gradient(top, $background 0%, $background 33%, $highlight 33%, $highlight 67%, $font 67%, $font 100%);
+	background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,$background), color-stop(33%,$background),color-stop(33%,$highlight),color-stop(67%,$highlight),color-stop(67%,$font),color-stop(100%,$font));
+}

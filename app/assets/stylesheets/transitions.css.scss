@@ -164,38 +164,8 @@ html, body{
 	box-shadow: 0px 0px 5px blue;
 }
 
-#first{
-	color:$c1_bg;
-	 background-color:$c1_bg;
- filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$c1_bg, endColorstr=$c1_bg);
- background-image:-moz-linear-gradient(top, $c1_bg 0%, $c1_bg 33%,$c1_font 33%,$c1_font 67%,$c1_highlight 67%,$c1_highlight 100%);
-background-image:linear-gradient(top, $c1_bg 0%, $c1_bg 33%,$c1_font 33%,$c1_font 67%,$c1_highlight 67%,$c1_highlight 100%);
-background-image:-webkit-linear-gradient(top, $c1_bg 0%, $c1_bg 33%,$c1_font 33%,$c1_font 67%,$c1_highlight 67%,$c1_highlight 100%);
-background-image:-o-linear-gradient(top, $c1_bg 0%, $c1_bg 33%,$c1_font 33%,$c1_font 67%,$c1_highlight 67%,$c1_highlight 100%);
-background-image:-ms-linear-gradient(top, $c1_bg 0%, $c1_bg 33%,$c1_font 33%,$c1_font 67%,$c1_highlight 67%,$c1_highlight 100%);
- background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,$c1_bg), color-stop(33%,$c1_bg),color-stop(33%,$c1_font),color-stop(67%,$c1_font),color-stop(67%,$c1_highlight),color-stop(100%,$c1_highlight));
-}
-#second{
-	color:$c2_bg;
-	background-color:$c2_bg;
- filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$c2_bg, endColorstr=$c2_bg);
-background-image:-moz-linear-gradient(top, $c2_bg 0%, $c2_bg 33%,$c2_font 33%,$c2_font 67%,$c2_highlight 67%,$c2_highlight 100%);
-background-image:linear-gradient(top, $c2_bg 0%, $c2_bg 33%,$c2_font 33%,$c2_font 67%,$c2_highlight 67%,$c2_highlight 100%);
-background-image:-webkit-linear-gradient(top, $c2_bg 0%, $c2_bg 33%,$c2_font 33%,$c2_font 67%,$c2_highlight 67%,$c2_highlight 100%);
-background-image:-o-linear-gradient(top, $c2_bg 0%, $c2_bg 33%,$c2_font 33%,$c2_font 67%,$c2_highlight 67%,$c2_highlight 100%);
-background-image:-ms-linear-gradient(top, $c2_bg 0%, $c2_bg 33%,$c2_font 33%,$c2_font 67%,$c2_highlight 67%,$c2_highlight 100%);
- background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,$c2_bg), color-stop(33%,$c2_bg),color-stop(33%,$c2_font),color-stop(67%,$c2_font),color-stop(67%,$c2_highlight),color-stop(100%,$c2_highlight));
-}
-#third{
-	color:$c3_bg;
- background-color:$c3_bg;
- filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$c3_bg, endColorstr=$c3_bg);
- background-image:-moz-linear-gradient(top, $c3_bg 0%, $c3_bg 33%,$c3_font 33%,$c3_font 67%,$c3_highlight 67%,$c3_highlight 100%);
-background-image:linear-gradient(top, $c3_bg 0%, $c3_bg 33%,$c3_font 33%,$c3_font 67%,$c3_highlight 67%,$c3_highlight 100%);
-background-image:-webkit-linear-gradient(top, $c3_bg 0%, $c3_bg 33%,$c3_font 33%,$c3_font 67%,$c3_highlight 67%,$c3_highlight 100%);
-background-image:-o-linear-gradient(top, $c3_bg 0%, $c3_bg 33%,$c3_font 33%,$c3_font 67%,$c3_highlight 67%,$c3_highlight 100%);
-background-image:-ms-linear-gradient(top, $c3_bg 0%, $c3_bg 33%,$c3_font 33%,$c3_font 67%,$c3_highlight 67%,$c3_highlight 100%);
- background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,$c3_bg), color-stop(33%,$c3_bg),color-stop(33%,$c3_font),color-stop(67%,$c3_font),color-stop(67%,$c3_highlight),color-stop(100%,$c3_highlight));
-}
+#first  { @include swatch-colours($c1_bg, $c1_font, $c1_highlight); }
 
-
+#second { @include swatch-colours($c2_bg, $c2_font, $c2_highlight); }
+	
+#third  { @include swatch-colours($c3_bg, $c3_font, $c3_highlight); }
