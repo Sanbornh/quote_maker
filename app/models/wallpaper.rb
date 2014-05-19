@@ -2,7 +2,7 @@ class Wallpaper < ActiveRecord::Base
 
 	belongs_to :colour_scheme
 
-	def create_image
+		def create_image
 		make_canvas
 		draw_background
 		set_styling
@@ -48,7 +48,6 @@ class Wallpaper < ActiveRecord::Base
 		
 		obj = bucket.objects["wallpaper.jpg"].write(blob)
 
-		# binding.pry
 		# @canvas.write('testingRmagickRails.jpg')
 	end
 end
