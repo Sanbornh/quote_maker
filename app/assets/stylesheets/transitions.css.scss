@@ -133,8 +133,8 @@ html, body{
 #swatch_wrapper{
 	border:$test_border;
 	position:absolute;
-	padding-left:15%;
-	padding-right:15%;
+	padding-left:10%;
+	padding-right:10%;
 	top:0;
 	left:0;
 	right:0;
@@ -142,10 +142,15 @@ html, body{
 	margin:auto;	
 }
 
-.swatch{
-	border:1px solid black;
-	height:100%;
-	width:5rem;
+
+
+#swatch_wrapper input[type=radio]{
+	display: none;
+}
+
+#swatch_wrapper input[type=radio] + label{
+	height:10rem;
+	width:4.5rem;
 	float:left;
 	margin-top:0;
 	margin-bottom:0;
@@ -153,57 +158,44 @@ html, body{
 	margin-left:1.5%;
 }
 
-.swatch:nth-child(1){
-	div:nth-child(1){
-		background-color: $c1_bg;
-		height:33%;
-	}
-	div:nth-child(2){
-		background-color: $c1_font;
-		height:34%;
-	}
-	div:nth-child(3){
-		background-color: $c1_highlight;
-		height:33%;
-	}
+#swatch_wrapper input[type=radio]:checked + label{
+	-moz-box-shadow: 0 0 5px blue;
+	-webkit-box-shadow: 0 0 5px blue;
+	box-shadow: 0px 0px 5px blue;
 }
 
-.swatch:nth-child(2){
-	div:nth-child(1){
-		background-color: $c2_bg;
-		height:33%;
-	}
-	div:nth-child(2){
-		background-color: $c2_font;
-		height:34%;
-	}
-	div:nth-child(3){
-		background-color: $c2_highlight;
-		height:33%;
-	}
+#first{
+	color:$c1_bg;
+	 background-color:$c1_bg;
+ filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$c1_bg, endColorstr=$c1_bg);
+ background-image:-moz-linear-gradient(top, $c1_bg 0%, $c1_bg 33%,$c1_font 33%,$c1_font 67%,$c1_highlight 67%,$c1_highlight 100%);
+background-image:linear-gradient(top, $c1_bg 0%, $c1_bg 33%,$c1_font 33%,$c1_font 67%,$c1_highlight 67%,$c1_highlight 100%);
+background-image:-webkit-linear-gradient(top, $c1_bg 0%, $c1_bg 33%,$c1_font 33%,$c1_font 67%,$c1_highlight 67%,$c1_highlight 100%);
+background-image:-o-linear-gradient(top, $c1_bg 0%, $c1_bg 33%,$c1_font 33%,$c1_font 67%,$c1_highlight 67%,$c1_highlight 100%);
+background-image:-ms-linear-gradient(top, $c1_bg 0%, $c1_bg 33%,$c1_font 33%,$c1_font 67%,$c1_highlight 67%,$c1_highlight 100%);
+ background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,$c1_bg), color-stop(33%,$c1_bg),color-stop(33%,$c1_font),color-stop(67%,$c1_font),color-stop(67%,$c1_highlight),color-stop(100%,$c1_highlight));
 }
-
-.swatch:nth-child(3){
-	div:nth-child(1){
-		background-color: $c3_bg;
-		height:33%;
-	}
-	div:nth-child(2){
-		background-color: $c3_font;
-		height:34%;
-	}
-	div:nth-child(3){
-		background-color: $c3_highlight;
-		height:33%;
-	}
+#second{
+	color:$c2_bg;
+	background-color:$c2_bg;
+ filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$c2_bg, endColorstr=$c2_bg);
+background-image:-moz-linear-gradient(top, $c2_bg 0%, $c2_bg 33%,$c2_font 33%,$c2_font 67%,$c2_highlight 67%,$c2_highlight 100%);
+background-image:linear-gradient(top, $c2_bg 0%, $c2_bg 33%,$c2_font 33%,$c2_font 67%,$c2_highlight 67%,$c2_highlight 100%);
+background-image:-webkit-linear-gradient(top, $c2_bg 0%, $c2_bg 33%,$c2_font 33%,$c2_font 67%,$c2_highlight 67%,$c2_highlight 100%);
+background-image:-o-linear-gradient(top, $c2_bg 0%, $c2_bg 33%,$c2_font 33%,$c2_font 67%,$c2_highlight 67%,$c2_highlight 100%);
+background-image:-ms-linear-gradient(top, $c2_bg 0%, $c2_bg 33%,$c2_font 33%,$c2_font 67%,$c2_highlight 67%,$c2_highlight 100%);
+ background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,$c2_bg), color-stop(33%,$c2_bg),color-stop(33%,$c2_font),color-stop(67%,$c2_font),color-stop(67%,$c2_highlight),color-stop(100%,$c2_highlight));
 }
-.swatch[button]{
-	height:100px;
-	width:100px;
-	background-color: tomato;
+#third{
+	color:$c3_bg;
+ background-color:$c3_bg;
+ filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$c3_bg, endColorstr=$c3_bg);
+ background-image:-moz-linear-gradient(top, $c3_bg 0%, $c3_bg 33%,$c3_font 33%,$c3_font 67%,$c3_highlight 67%,$c3_highlight 100%);
+background-image:linear-gradient(top, $c3_bg 0%, $c3_bg 33%,$c3_font 33%,$c3_font 67%,$c3_highlight 67%,$c3_highlight 100%);
+background-image:-webkit-linear-gradient(top, $c3_bg 0%, $c3_bg 33%,$c3_font 33%,$c3_font 67%,$c3_highlight 67%,$c3_highlight 100%);
+background-image:-o-linear-gradient(top, $c3_bg 0%, $c3_bg 33%,$c3_font 33%,$c3_font 67%,$c3_highlight 67%,$c3_highlight 100%);
+background-image:-ms-linear-gradient(top, $c3_bg 0%, $c3_bg 33%,$c3_font 33%,$c3_font 67%,$c3_highlight 67%,$c3_highlight 100%);
+ background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,$c3_bg), color-stop(33%,$c3_bg),color-stop(33%,$c3_font),color-stop(67%,$c3_font),color-stop(67%,$c3_highlight),color-stop(100%,$c3_highlight));
 }
-
-
-
 
 

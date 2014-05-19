@@ -8,36 +8,24 @@
 		</div>
 
 		<div id="colour_field">	
-			<div id="swatch_wrapper">
-				<a href="#">	
-					<div class="swatch">
-						<div></div>
-						<div></div>
-						<div></div>
-						<%= f.hidden_field :colour_scheme_id, value: :colour_scheme[0] %>
-						<!-- :colour_scheme_id  @colour_schemes[0].id from the old code --> 
-					</div>
-				</a>
+
+			<div id="swatch_wrapper"> 
 				
-				<div class="swatch">
-					<a href="#">
-						<div></div>
-						<div></div>
-						<div></div>
-						<%= f.hidden_field :colour_scheme_id, value: :colour_scheme[1] %>
-					  <!-- :colour_scheme_id, @colour_schemes[1].id -->
-					</a>
-				</div>
+				<%= f.radio_button :colour_scheme_id, :colour_schemes[0] %>
+				<%= f.label :colour_scheme_id, :colour_schemes[0], value: :colour_schemes[0], id: "first"  %>
+				
+			
 				
 				
-				<div class="swatch">
-					<a href="#">
-						<div></div>
-						<div></div>
-						<div></div>
-						<%= f.hidden_field :colour_scheme_id, value: :colour_scheme[2] %>						
-					</a>
-				</div>
+				<%= f.radio_button :colour_scheme_id, :colour_schemes[1] %>
+				<%= f.label :colour_scheme_id, :colour_schemes[1], value: :colour_schemes[1], id: "second" %>
+				
+				
+				
+				
+				<%= f.radio_button :colour_scheme_id, :colour_schemes[2] %>
+				<%= f.label :colour_scheme_id, :colour_schemes[2], value: :colour_schemes[2], id: "third" %>
+				
 			</div>
 		</div>
 

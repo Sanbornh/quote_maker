@@ -17,3 +17,6 @@
 
 # Ignore .DS_STORE
 .DS_Store
+
+#Ignore testingRmagickRails.jpg
+/testingRmagickRails.jpg
