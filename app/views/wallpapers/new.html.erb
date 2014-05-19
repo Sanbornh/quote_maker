@@ -11,13 +11,13 @@
 
 			<div id="swatch_wrapper"> 
 				<%= f.radio_button :colour_scheme_id, @colour_schemes[0].id %>
-				<%= f.label :colour_scheme_id, :colour_schemes[0], value: :colour_schemes[0], id: "first"  %>
+				<%= f.label :colour_scheme_id, :colour_schemes[0], value: @colour_schemes[0].id, id: "first"  %>
 				
 				<%= f.radio_button :colour_scheme_id, @colour_schemes[1].id %>
-				<%= f.label :colour_scheme_id, :colour_schemes[1], value: :colour_schemes[1], id: "second" %>
+				<%= f.label :colour_scheme_id, :colour_schemes[1], value: @colour_schemes[1].id, id: "second" %>
 				
 				<%= f.radio_button :colour_scheme_id, @colour_schemes[2].id %>
-				<%= f.label :colour_scheme_id, :colour_schemes[2], value: :colour_schemes[2], id: "third" %>
+				<%= f.label :colour_scheme_id, :colour_schemes[2], value: @colour_schemes[2].id, id: "third" %>
 			</div>
 		</div>
 
