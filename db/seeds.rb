@@ -9,4 +9,4 @@
 
 ColourScheme.create(background: "#193441", font: "#fcfff5", highlight: "#d1dbbd")
 ColourScheme.create(background: "#76111c", font: "#fffbf7", highlight: "#d29d9e")
-ColourScheme.create(background: "#0e5e26", font: "#f9fff7", highlight: "#c0e5b4")
+ColourScheme.create(background: "#0c441d", font: "#f9fff7", highlight: "#c0e5b4")
