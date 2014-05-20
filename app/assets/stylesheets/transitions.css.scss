@@ -97,21 +97,13 @@ html, body{
 #colour_field{
 	border:$test_border;
 	height:42%;
-	width:50%;
+	width:45%;
 	margin-right: $field_start_pos;
 	padding:0;
 	opacity:0;
 	z-index: 0;
 }
 
-#layout_field{
-	border:$test_border;
-	height:$field_height;
-	width:$field_width;
-	margin-right: $field_start_pos;
-	opacity:0;
-	z-index: 0;
-}
 
 #submit_field{
 	border:$test_border;
@@ -143,12 +135,12 @@ html, body{
 }
 
 
-
 #swatch_wrapper input[type=radio]{
 	display: none;
 }
 
 #swatch_wrapper input[type=radio] + label{
+	border:1px solid black;
 	height:10rem;
 	width:4.5rem;
 	float:left;
@@ -164,8 +156,43 @@ html, body{
 	box-shadow: 0px 0px 5px blue;
 }
 
-#first  { @include swatch-colours($c1_bg, $c1_font, $c1_highlight); }
+#first  { @include swatch-colours($c1_font, $c1_bg, $c1_highlight ); }
 
-#second { @include swatch-colours($c2_bg, $c2_font, $c2_highlight); }
+#second { @include swatch-colours($c2_font, $c2_bg, $c2_highlight); }
 	
-#third  { @include swatch-colours($c3_bg, $c3_font, $c3_highlight); }
+#third  { @include swatch-colours($c3_font, $c3_bg,  $c3_highlight); }
+
+//layout field nesting
+#layout_field{
+	border:$test_border;
+	height:60%;
+	width:50%;
+	margin-right: $field_start_pos;
+	opacity:0;
+	z-index: 0;
+	
+	input[type=radio]{
+		display:none;
+		position:absolute;
+	}
+
+	input[type=radio] + label{
+		position:relative;
+		float:left;
+		background:url("http://placehold.it/200x125");
+		width:200px;
+		height:125px;
+		margin-top:0.5rem;
+		margin-left:0.5rem;
+	}
+
+	input[type=radio]:checked + label{
+		-moz-box-shadow: 0 0 5px blue;
+		-webkit-box-shadow: 0 0 5px blue;
+		box-shadow: 0px 0px 5px blue;
+	}
+
+}
+//end of layout field nesting
+
+

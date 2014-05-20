@@ -40,6 +40,17 @@ $(document).ready(function(){
 		}
 	});
 
-	
+	function layout_selection(image, radio_id){
+		$(image).click(function(){
+			$(radio_id).attr('checked',true);
+			$(this).addClass("glow");
+		});
+	}
 
-});
+	// layout_selection("#top","#wallpaper_layout_scheme_1");
+	// layout_selection("#middle","#wallpaper_layout_scheme_2");
+	// layout_selection("#bottom","#wallpaper_layout_scheme_3");
+
+
+
+});//doc ready

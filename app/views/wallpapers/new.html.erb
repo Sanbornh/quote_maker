@@ -22,12 +22,21 @@
 		</div>
 
 		<div id="layout_field">
-			<%= f.label "top" %>
-			<%= f.radio_button :layout_scheme, "top" %>
-			<%= f.label "middle" %>
-			<%= f.radio_button :layout_scheme, "middle" %>
-			<%= f.label "bottom" %>
-			<%= f.radio_button :layout_scheme, "bottom" %>
+			<div id="layout_radios">
+				
+				
+				<%= f.radio_button :layout_scheme, "1" %>
+				<%= f.label :layout_scheme, value: "1" %>
+				
+				<%= f.radio_button :layout_scheme, "2" %>
+				<%= f.label :layout_scheme, value: "2" %>
+				
+				<%= f.radio_button :layout_scheme, "3" %>
+				<%= f.label :layout_scheme, value: "3" %>
+
+			</div>
+			
+
 		</div>
 		
 		<div id="submit_field">
