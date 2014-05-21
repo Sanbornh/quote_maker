@@ -9,6 +9,10 @@ html, body, .page-wrapper {
 	height: 100%;
 }
 
+textarea {
+	resize: none;
+}
+
 .form-wrapper {
 	width: 60%;
 	height: 40%;
