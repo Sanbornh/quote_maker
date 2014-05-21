@@ -31,11 +31,22 @@ ActiveRecord::Schema.define(version: 20140521181003) do
     t.hstore   "layout_parameters"
   end
 
+  create_table "users", force: true do |t|
+    t.string   "email",            null: false
+    t.string   "crypted_password", null: false
+    t.string   "salt",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+
   create_table "wallpapers", force: true do |t|
     t.text     "quote"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "colour_scheme_id"
+    t.integer  "user_id"
     t.string   "url"
     t.integer  "layout_scheme_id"
   end

@@ -156,7 +156,7 @@ html, body{
 	box-shadow: 0px 0px 5px blue;
 }
 
-#first  { @include swatch-colours($c1_font, $c1_bg, $c1_highlight ); }
+#first { @include swatch-colours($c1_font, $c1_bg, $c1_highlight ); }
 
 #second { @include swatch-colours($c2_font, $c2_bg, $c2_highlight); }
 	

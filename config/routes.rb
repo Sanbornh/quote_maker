@@ -1,7 +1,16 @@
 QuoteMaker::Application.routes.draw do
 
   root to: 'wallpapers#new'
+  
+  get "logout"=>"sessions#destroy", :as=>"logout"
+  get "login"=>"sessions#new", :as=>"login"
+  get "signup"=>"users#new", :as=>"signup"
+
+  
+  resources :users, only: [:new, :create,]
+  resources :sessions, only: [:new, :create]
   resources :wallpapers, only: [:new, :create]
+  
   get '/preview/:id', to: 'wallpapers#preview', as: :preview
 
 
