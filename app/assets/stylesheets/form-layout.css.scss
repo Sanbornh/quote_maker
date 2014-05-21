@@ -1,3 +1,4 @@
+// ------ GENERAL STRUCTURE ----- \\
 html, body, .page-wrapper {
 	width: 100%;
 	height: 100%;
@@ -16,10 +17,8 @@ html, body, .page-wrapper {
 	height: 100%;
 }
 
-.form-elements {
-	width: 60%;
-	height: 100%;
-}
+
+// --------- NAV ARROWS -------- \\
 
 .arrow-wrapper {
 	height: 100%;
@@ -39,6 +38,15 @@ html, body, .page-wrapper {
 	width: 50px;
 	@include center-vert-and-hor;
 }
+
+// -------- FORM FIELDS -------- \\
+// TEXTBOX, COLOUR INPUT, LAYOUT INPUT
+
+.form-elements {
+	width: 60%;
+	height: 100%;
+}
+
 
 .form-element {
 	@include center-vert-and-hor;
