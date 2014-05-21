@@ -9,10 +9,11 @@
 
 LayoutScheme.create(layout_parameters: {
 	font: "Cardo-Regular",
-	font_size: 60
+	font_size: 60,
+	quote_marks: true,
 })
 
 LayoutScheme.create(layout_parameters: {
 	font: "OpenSans-Bold",
-	font_size: 100
+	font_size: 200,
 })

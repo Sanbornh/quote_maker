@@ -37,8 +37,10 @@ class Wallpaper < ActiveRecord::Base
 	end
 
 	def prep_quote
-		@quote = self.quote + "”"
-		
+		@quote = self.quote
+
+		if self.layout_scheme.quote_marks then @quote << "”" end
+
 		wrap_quote
 		get_quote_dimensions
 	end
@@ -75,7 +77,10 @@ class Wallpaper < ActiveRecord::Base
 	def composite_image
 		color = self.colour_scheme.font
 		@text.annotate(@canvas, 0, 0, @x, @y, @quote) { self.fill = color }
-		@text.annotate(@canvas, 0, 0, (@x - 28), @y, "“") {self.fill = color }
+
+		if self.layout_scheme.quote_marks
+			@text.annotate(@canvas, 0, 0, (@x - 28), @y, "“") {self.fill = color }
+		end
 	end
 
 	def save_image

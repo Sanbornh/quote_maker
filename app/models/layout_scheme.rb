@@ -4,5 +4,6 @@ class LayoutScheme < ActiveRecord::Base
 
 	store_accessor :layout_parameters, :font
 	store_accessor :layout_parameters, :font_size
+	store_accessor :layout_parameters, :quote_marks
 	
 end
