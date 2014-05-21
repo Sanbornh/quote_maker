@@ -4,12 +4,13 @@
 
 			<li class="arrow-wrapper">
 				<div class="arrow" id="arrow-left"></div>
+				<div class="arrow-background"></div>
 			</li>
 
 			<li class="form-elements">
 				<%= form_for @wallpaper do |f| %>
 				<div class="form-element" id="quote-box-wrapper">
-					<%#= f.text_area :quote, placeholder: "True friends stab you in the front." %>		
+					<%= f.text_area :quote, placeholder: "True friends stab you in the front." %>		
 				</div>
 				<div class="form-element" id="swatches">
 
@@ -42,6 +43,7 @@
 
 			<li class="arrow-wrapper">
 				<div class="arrow" id="arrow-right"></div>
+				<div class="arrow-background"></div>
 			</li>
 
 		</ul>
