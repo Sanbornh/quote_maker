@@ -8,6 +8,11 @@
 
 
 LayoutScheme.create(layout_parameters: {
-	font: "Cardo-Regular"
+	font: "Cardo-Regular",
+	font_size: 60
+})
 
+LayoutScheme.create(layout_parameters: {
+	font: "OpenSans-Bold",
+	font_size: 100
 })
