@@ -18,16 +18,17 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-html,body,div{
+
+* {
 	box-sizing:border-box;
 }
 
 html, body{
 	height:100%;
 	width:100%;
-	position:relative;
+	background-color: #F2F2F2;
+	// position:relative;
 	font-size: 18px;
-
 }
 
 #container{
@@ -49,6 +50,7 @@ html, body{
  	opacity:$arrow_opacity;
  	z-index: 1;
 }
+
 #arrow_right{
 	display:auto;
 	right:$arrow_side_margin;
@@ -56,15 +58,18 @@ html, body{
 	opacity:$arrow_opacity;
 	z-index:1;
 }
+
 #arrow_left, #arrow_right{
-	background-color:$background-color;
+	// background-color:$background-color;
 	border:$test_border;
 	position:absolute;
 	width:auto;
 }
+
 #arrow_left:hover, #arrow_right:hover{
 	opacity:1;
 }
+
 #arrow_right:active{
 	opacity:0.7;
 }
@@ -77,6 +82,7 @@ html, body{
 	bottom:0;
 	margin: auto;
 }
+
 #colour_field, #layout_field, #submit_field{
 	position:absolute;
 }
@@ -89,8 +95,16 @@ html, body{
 	
 
 	textarea{
+		font-family: "Lato", sans-serif;
+		color: #F2F2F2;
 		height:9rem;
 		width: 100%;
+		background-color: #404040;
+
+	}
+
+	textarea:focus {
+		outline: 2px solid #00D2D6;
 	}
 }
 

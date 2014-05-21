@@ -24,14 +24,14 @@
 		<div id="layout_field">
 			<div id="layout_radios">
 				
-				<%= f.radio_button :layout_scheme_id, "1" %>
-				<label for="wallpaper_layout_scheme_id_1"></label>
+				<%= f.radio_button :layout_scheme_id, @layout_schemes[0].id %>
+				<label for="wallpaper_layout_scheme_id_<%= @layout_schemes[0].id %>"></label>
 				
-				<%= f.radio_button :layout_scheme_id, "2" %>
-				<label for="wallpaper_layout_scheme_id_2"></label>
+				<%= f.radio_button :layout_scheme_id, @layout_schemes[1].id %>
+				<label for="wallpaper_layout_scheme_id_<%= @layout_schemes[1].id %>"></label>
 				
-				<%= f.radio_button :layout_scheme_id, "3" %>
-				<label for="wallpaper_layout_scheme_id_3"></label>
+				<%= f.radio_button :layout_scheme_id, @layout_schemes[2].id %>
+				<label for="wallpaper_layout_scheme_id_<%= @layout_schemes[2].id %>"></label>
 
 			</div>
 			

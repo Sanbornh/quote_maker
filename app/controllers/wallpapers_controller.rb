@@ -3,6 +3,7 @@ class WallpapersController < ApplicationController
 	def new
 		@wallpaper = Wallpaper.new
 		@colour_schemes = ColourScheme.all
+		@layout_schemes = LayoutScheme.all
 	end
 
 	def create

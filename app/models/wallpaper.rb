@@ -5,10 +5,7 @@ class Wallpaper < ActiveRecord::Base
 	belongs_to :layout_scheme
 
 	def create_image
-		@canvas_width = 2880
-		@canvas_height = 1800
-
-		make_canvas
+		init_variables
 		draw_background
 		set_styling
 		prep_quote
@@ -17,8 +14,11 @@ class Wallpaper < ActiveRecord::Base
 		save_image
 	end
 
-	def make_canvas
-		@canvas = Magick::ImageList.new  
+	def init_variables
+		@canvas = Magick::ImageList.new 
+		@canvas_width = 2880
+		@canvas_height = 1800
+		@quote = self.quote
 	end
 
 	# Note that it's necessary to store the background 
@@ -26,7 +26,7 @@ class Wallpaper < ActiveRecord::Base
 	# so that it is scoped correctly when called in block!!
 	def draw_background
 		color = self.colour_scheme.background	
-		image = @canvas.new_image(@canvas_width, @canvas_height) { self.background_color = color }
+		@canvas.new_image(@canvas_width, @canvas_height) { self.background_color = color }
 	end
 
 	def set_styling
@@ -37,8 +37,7 @@ class Wallpaper < ActiveRecord::Base
 	end
 
 	def prep_quote
-		@quote = self.quote + "”"
-		
+		if self.layout_scheme.quote_marks then @quote << "”" end
 		wrap_quote
 		get_quote_dimensions
 	end
@@ -75,7 +74,10 @@ class Wallpaper < ActiveRecord::Base
 	def composite_image
 		color = self.colour_scheme.font
 		@text.annotate(@canvas, 0, 0, @x, @y, @quote) { self.fill = color }
-		@text.annotate(@canvas, 0, 0, (@x - 28), @y, "“") {self.fill = color }
+
+		if self.layout_scheme.quote_marks
+			@text.annotate(@canvas, 0, 0, (@x - 28), @y, "“") {self.fill = color }
+		end
 	end
 
 	def save_image
@@ -92,7 +94,6 @@ class Wallpaper < ActiveRecord::Base
 		  secret_access_key: S3_CREDENTIALS["secret_access_key"],
 		  region: "us-west-2"
 		)
-
 		@bucket = @s3.buckets[S3_CREDENTIALS["bucket"]]
 	end
 end

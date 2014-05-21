@@ -44,6 +44,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+<<<<<<< HEAD
 -- Name: authentications; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -77,6 +78,8 @@ ALTER SEQUENCE authentications_id_seq OWNED BY authentications.id;
 
 
 --
+=======
+>>>>>>> e2b07b498e891204b24486dfda119de4c973e73d
 -- Name: colour_schemes; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -192,9 +195,15 @@ CREATE TABLE wallpapers (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     colour_scheme_id integer,
+<<<<<<< HEAD
     user_id integer,
     url character varying(255),
     layout_scheme_id integer
+=======
+    url character varying(255),
+    layout_scheme_id integer,
+    user_id integer
+>>>>>>> e2b07b498e891204b24486dfda119de4c973e73d
 );
 
 
@@ -221,6 +230,7 @@ ALTER SEQUENCE wallpapers_id_seq OWNED BY wallpapers.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+<<<<<<< HEAD
 ALTER TABLE ONLY authentications ALTER COLUMN id SET DEFAULT nextval('authentications_id_seq'::regclass);
 
 
@@ -228,6 +238,8 @@ ALTER TABLE ONLY authentications ALTER COLUMN id SET DEFAULT nextval('authentica
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+=======
+>>>>>>> e2b07b498e891204b24486dfda119de4c973e73d
 ALTER TABLE ONLY colour_schemes ALTER COLUMN id SET DEFAULT nextval('colour_schemes_id_seq'::regclass);
 
 
@@ -253,6 +265,7 @@ ALTER TABLE ONLY wallpapers ALTER COLUMN id SET DEFAULT nextval('wallpapers_id_s
 
 
 --
+<<<<<<< HEAD
 -- Name: authentications_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -261,6 +274,8 @@ ALTER TABLE ONLY authentications
 
 
 --
+=======
+>>>>>>> e2b07b498e891204b24486dfda119de4c973e73d
 -- Name: colour_schemes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -324,8 +339,11 @@ INSERT INTO schema_migrations (version) VALUES ('20140521024252');
 
 INSERT INTO schema_migrations (version) VALUES ('20140521030137');
 
+<<<<<<< HEAD
 INSERT INTO schema_migrations (version) VALUES ('20140521030753');
 
+=======
+>>>>>>> e2b07b498e891204b24486dfda119de4c973e73d
 INSERT INTO schema_migrations (version) VALUES ('20140521160522');
 
 INSERT INTO schema_migrations (version) VALUES ('20140521160917');
@@ -335,5 +353,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140521175610');
 INSERT INTO schema_migrations (version) VALUES ('20140521175712');
 
 INSERT INTO schema_migrations (version) VALUES ('20140521181003');
+<<<<<<< HEAD
 
 INSERT INTO schema_migrations (version) VALUES ('20140521203200');
+=======
+>>>>>>> e2b07b498e891204b24486dfda119de4c973e73d
