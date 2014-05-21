@@ -8,10 +8,9 @@ class WallpapersController < ApplicationController
 	def create
 		@wallpaper = Wallpaper.new(wallpaper_params)
 		
-
 		if @wallpaper.save
 			@wallpaper.create_image
-			redirect_to "https://s3-us-west-2.amazonaws.com/quote-maker-storage/wallpaper-#{@wallpaper.id}.jpg"
+			redirect_to @wallpaper.url
 		else
 			render :new
 		end
@@ -24,7 +23,7 @@ class WallpapersController < ApplicationController
 
 	private
 	def wallpaper_params
-		params.require(:wallpaper).permit(:quote, :colour_scheme_id, :layout_scheme)
+		params.require(:wallpaper).permit(:quote, :colour_scheme_id, :layout_scheme_id)
 	end
 
 end
