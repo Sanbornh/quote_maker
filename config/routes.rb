@@ -2,6 +2,10 @@ QuoteMaker::Application.routes.draw do
 
   root to: 'wallpapers#new'
   
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
   get "logout"=>"sessions#destroy", :as=>"logout"
   get "login"=>"sessions#new", :as=>"login"
   get "signup"=>"users#new", :as=>"signup"

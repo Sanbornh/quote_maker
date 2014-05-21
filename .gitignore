@@ -25,3 +25,6 @@
 # Ignore login credentials for s3
 /config/s3.yml
 
+
+# Ignore application configuration
+/config/application.yml
