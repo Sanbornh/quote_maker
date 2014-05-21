@@ -1,6 +1,7 @@
 class Wallpaper < ActiveRecord::Base
 
 	belongs_to :colour_scheme
+	belongs_to :layout_scheme
 
 	def create_image
 		@canvas_width = 2880
@@ -36,7 +37,7 @@ class Wallpaper < ActiveRecord::Base
 	end
 
 	def prep_quote
-		@quote = self.quote
+		@quote = self.quote + "”"
 		
 		wrap_quote
 		get_quote_dimensions
@@ -49,7 +50,7 @@ class Wallpaper < ActiveRecord::Base
 			@quote
 		else
 			@quote = word_wrap(@quote, 50)
-		end
+		end	
 	end
 
 	def get_quote_dimensions
@@ -59,7 +60,7 @@ class Wallpaper < ActiveRecord::Base
 	end
 
 	# Sourced from github/cmdrkeene/memegen
-	def word_wrap(txt, col = 80)
+	def word_wrap(txt, col = 50)
   	txt.gsub(/(.{1,#{col + 4}})(\s+|\Z)/, "\\1\n")
   end
 
@@ -74,6 +75,7 @@ class Wallpaper < ActiveRecord::Base
 	def composite_image
 		color = self.colour_scheme.font
 		@text.annotate(@canvas, 0, 0, @x, @y, @quote) { self.fill = color }
+		@text.annotate(@canvas, 0, 0, (@x - 30), @y, "“") {self.fill = color }
 	end
 
 	def save_image
