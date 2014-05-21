@@ -90,7 +90,7 @@ html, body{
 
 	textarea{
 		height:9rem;
-		width:16rem;
+		width: 100%;
 	}
 }
 
@@ -103,7 +103,6 @@ html, body{
 	opacity:0;
 	z-index: 0;
 }
-
 
 #submit_field{
 	border:$test_border;
@@ -132,6 +131,7 @@ html, body{
 	right:0;
 	bottom:0;
 	margin:auto;	
+	width: 378px;
 }
 
 
