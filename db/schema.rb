@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521160917) do
+ActiveRecord::Schema.define(version: 20140521175712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "colour_schemes", force: true do |t|
     t.string   "background"
@@ -25,9 +26,9 @@ ActiveRecord::Schema.define(version: 20140521160917) do
   end
 
   create_table "layout_schemes", force: true do |t|
-    t.string   "font"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.hstore   "attributes"
   end
 
   create_table "wallpapers", force: true do |t|
