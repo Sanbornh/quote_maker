@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20140521181003) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "colour_scheme_id"
+    t.integer  "user_id"
     t.string   "url"
     t.integer  "layout_scheme_id"
-    t.integer  "user_id"
   end
 
 end
