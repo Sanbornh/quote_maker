@@ -11,13 +11,13 @@
 
 			<div id="swatch_wrapper"> 
 				<%= f.radio_button :colour_scheme_id, @colour_schemes[0].id %>
-				<label for="wallpaper_colour_scheme_id_7" id="first"></label>
+				<label for="wallpaper_colour_scheme_id_<%= @colour_schemes[0].id %>" id="first"></label>
 				
 				<%= f.radio_button :colour_scheme_id, @colour_schemes[1].id %>
-				<label for="wallpaper_colour_scheme_id_8" id="second"></label>
+				<label for="wallpaper_colour_scheme_id_<%= @colour_schemes[1].id %>" id="second"></label>
 				
 				<%= f.radio_button :colour_scheme_id, @colour_schemes[2].id %>
-				<label for="wallpaper_colour_scheme_id_9" id="third"></label>
+				<label for="wallpaper_colour_scheme_id_<%= @colour_schemes[2].id %>" id="third"></label>
 			</div>
 		</div>
 
