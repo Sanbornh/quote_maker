@@ -1,6 +1,7 @@
 class Wallpaper < ActiveRecord::Base
 
 	belongs_to :colour_scheme
+	belongs_to :user
 
 	def create_image
 		@canvas_width = 2880

@@ -1,5 +1,8 @@
 QuoteMaker::Application.routes.draw do
 
+  get "users/new"
+  get "users/create"
+  get "users/destroy"
   root to: 'wallpapers#new'
   resources :wallpapers, only: [:new, :create]
   get '/preview/:id', to: 'wallpapers#preview', as: :preview
