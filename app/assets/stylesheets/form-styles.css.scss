@@ -32,5 +32,10 @@
 #wallpaper_quote {
 	padding-top: 2%;
 	padding-left: 3%;
+	border: none;
+	background-color: $light-grey;
+}
 
+textarea:focus {
+	outline: 2px solid $orange;
 }
