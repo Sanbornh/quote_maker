@@ -1,0 +1,59 @@
+html, body, .page-wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.form-wrapper {
+	width: 60%;
+	height: 40%;
+	min-height: 200px;
+	position: absolute;
+	@include center-vert-and-hor;
+}
+
+.inner-form {
+	width: 100%;
+	height: 100%;
+}
+
+.form-elements {
+	width: 60%;
+	height: 100%;
+}
+
+.arrow-wrapper {
+	height: 100%;
+
+	&:nth-child(1), &:nth-child(3) {
+		width: 20%;
+	}
+}
+
+.arrow-wrapper, .form-elements {
+	float: left;
+	position: relative;
+}
+
+.arrow {
+	height: 50px;
+	width: 50px;
+	@include center-vert-and-hor;
+}
+
+.form-element {
+	@include center-vert-and-hor;
+
+	&:nth-child(3) {
+		display: none;
+	}
+
+	&:nth-child(4) {
+		display: none;
+	}
+}
+
+#wallpaper_quote {
+	width: 100%;
+	height: 50%;
+	@include center-vert-and-hor;
+}

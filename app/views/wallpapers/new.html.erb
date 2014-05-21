@@ -1,10 +1,32 @@
-<div id="test"></div>
-<div id="container">
-	<div id="arrow_left"><%= image_tag("left.png") %></div>
+<div class="page-wrapper"> 
+	<div class="form-wrapper">
+		<ul class="inner-form">
 
-	<%= form_for @wallpaper do |f| %>
+			<li class="arrow-wrapper">
+				<div class="arrow"></div>
+			</li>
+
+			<li class="form-elements">
+				<%= form_for @wallpaper do |f| %>
+				<div class="form-element">
+					<%= f.text_area :quote, placeholder: "Enter a quote" %>		
+				</div>
+				<div class="form-element"></div>
+				<div class="form-element"></div>	
+			</li>
+
+			<li class="arrow-wrapper">
+				<div class="arrow"></div>
+			</li>
+
+		</ul>
+	</div>
+</div>
+
+
+
 		<div id="quote_field">
-			<%= f.text_area :quote, placeholder: "Enter a quote" %>
+			<%# f.text_area :quote, placeholder: "Enter a quote" %>
 		</div>
 
 		<div id="colour_field">	

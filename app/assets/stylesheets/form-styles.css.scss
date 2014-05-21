@@ -1,0 +1,24 @@
+.page-wrapper {
+	background-color: $background;
+}
+
+.arrow {
+	border-top: 2px solid $greyed-out;
+	border-left: 2px solid $greyed-out;
+}
+
+.arrow:hover {
+	border-color: $dark-grey;
+	cursor: pointer;
+}
+
+.arrow-wrapper {
+	
+	&:nth-child(1) {	
+		.arrow {@include rotate-image(-45deg);}
+	}
+
+	&:nth-child(3) {	
+		.arrow {@include rotate-image(135deg);}
+	}
+}
