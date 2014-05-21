@@ -31,6 +31,13 @@ html, body{
 	font-size: 18px;
 }
 
+a, a:visited, a:active, a:hover {
+	font-family: "Lato", sans-serif;
+	color: #404040;
+}
+
+
+
 #container{
 	border:$test_border;
 	position:relative;
