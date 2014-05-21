@@ -3,20 +3,45 @@
 		<ul class="inner-form">
 
 			<li class="arrow-wrapper">
-				<div class="arrow"></div>
+				<div class="arrow" id="arrow-left"></div>
 			</li>
 
 			<li class="form-elements">
 				<%= form_for @wallpaper do |f| %>
-				<div class="form-element">
-					<%= f.text_area :quote, placeholder: "True friends stab you in the front." %>		
+				<div class="form-element" id="quote-box-wrapper">
+					<%#= f.text_area :quote, placeholder: "True friends stab you in the front." %>		
 				</div>
-				<div class="form-element"></div>
+				<div class="form-element" id="swatches">
+
+					<div id="hidden-colour-field">
+						<%= f.hidden_field :colour_scheme_id, value: 1 %>
+					</div>
+
+					<div class="swatch">
+						<div></div>
+						<div></div>
+						<div></div>	
+					</div>
+
+					<div class="swatch">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+
+					<div class="swatch">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>	
+
+				</div>
 				<div class="form-element"></div>	
+				<% end %>
 			</li>
 
 			<li class="arrow-wrapper">
-				<div class="arrow"></div>
+				<div class="arrow" id="arrow-right"></div>
 			</li>
 
 		</ul>
@@ -32,14 +57,14 @@
 		<div id="colour_field">	
 
 			<div id="swatch_wrapper"> 
-				<%= f.radio_button :colour_scheme_id, @colour_schemes[0].id %>
-				<%= f.label :colour_scheme_id, :colour_schemes[0], value: @colour_schemes[0].id, id: "first"  %>
+				<%# f.radio_button :colour_scheme_id, @colour_schemes[0].id %>
+				<%# f.label :colour_scheme_id, :colour_schemes[0], value: @colour_schemes[0].id, id: "first"  %>
 				
-				<%= f.radio_button :colour_scheme_id, @colour_schemes[1].id %>
-				<%= f.label :colour_scheme_id, :colour_schemes[1], value: @colour_schemes[1].id, id: "second" %>
+				<%# f.radio_button :colour_scheme_id, @colour_schemes[1].id %>
+				<%# f.label :colour_scheme_id, :colour_schemes[1], value: @colour_schemes[1].id, id: "second" %>
 				
-				<%= f.radio_button :colour_scheme_id, @colour_schemes[2].id %>
-				<%= f.label :colour_scheme_id, :colour_schemes[2], value: @colour_schemes[2].id, id: "third" %>
+				<%# f.radio_button :colour_scheme_id, @colour_schemes[2].id %>
+				<%# f.label :colour_scheme_id, :colour_schemes[2], value: @colour_schemes[2].id, id: "third" %>
 			</div>
 		</div>
 
@@ -47,13 +72,13 @@
 			<div id="layout_radios">
 				
 				
-				<%= f.radio_button :layout_scheme, "1" %>
+				<%# f.radio_button :layout_scheme, "1" %>
 				<label for="wallpaper_layout_scheme_1"></label>
 				
-				<%= f.radio_button :layout_scheme, "2" %>
+				<%# f.radio_button :layout_scheme, "2" %>
 				<label for="wallpaper_layout_scheme_2"></label>
 				
-				<%= f.radio_button :layout_scheme, "3" %>
+				<%# f.radio_button :layout_scheme, "3" %>
 				<label for="wallpaper_layout_scheme_3"></label>
 
 			</div>
@@ -62,9 +87,9 @@
 		</div>
 		
 		<div id="submit_field">
-			<%= f.submit "Preview", id: "preview" %>
+			<%# f.submit "Preview", id: "preview" %>
 		</div>	
-	<% end %>
+	<%# end %>
 	
-	<div id="arrow_right"><%= image_tag("right.png") %></div>
+	<div id="arrow_right"><%# image_tag("right.png") %></div>
 </div>
