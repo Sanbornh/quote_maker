@@ -1,11 +1,8 @@
 class Wallpaper < ActiveRecord::Base
 
 	belongs_to :colour_scheme
-
 	belongs_to :user
-
 	belongs_to :layout_scheme
-
 
 	def create_image
 		@canvas_width = 2880
@@ -21,12 +18,12 @@ class Wallpaper < ActiveRecord::Base
 	end
 
 	def make_canvas
-		@canvas = Magick::ImageList.new 
+		@canvas = Magick::ImageList.new  
 	end
 
-	# Note that it's necessary to store color in local
-	# variable so that it is scoped correctly when called
-	# in block!!
+	# Note that it's necessary to store the background 
+	# color in a local variable and NOT an instance variable
+	# so that it is scoped correctly when called in block!!
 	def draw_background
 		color = self.colour_scheme.background	
 		image = @canvas.new_image(@canvas_width, @canvas_height) { self.background_color = color }
@@ -34,9 +31,8 @@ class Wallpaper < ActiveRecord::Base
 
 	def set_styling
 		@text = Magick::Draw.new
-		@text.font = "#{Rails.root}/lib/fonts/Cardo-Regular.ttf"
-		@text.pointsize = 60
-		# @text.gravity = Magick::CenterGravity
+		@text.font = "#{Rails.root}/lib/fonts/#{self.layout_scheme.font}.ttf"
+		@text.pointsize = self.layout_scheme.font_size.to_i
 		@text.align = Magick::LeftAlign
 	end
 
@@ -73,13 +69,13 @@ class Wallpaper < ActiveRecord::Base
   	@y = (@canvas_height / 2) - (@quote_height / 3)
   end
 
-	# Note that it's necessary to store color in local
-	# variable so that it is scoped correctly when called
-	# in block!!
+	# Note that it's necessary to store the background 
+	# color in a local variable and NOT an instance variable
+	# so that it is scoped correctly when called in block!!
 	def composite_image
 		color = self.colour_scheme.font
 		@text.annotate(@canvas, 0, 0, @x, @y, @quote) { self.fill = color }
-		@text.annotate(@canvas, 0, 0, (@x - 30), @y, "“") {self.fill = color }
+		@text.annotate(@canvas, 0, 0, (@x - 28), @y, "“") {self.fill = color }
 	end
 
 	def save_image
