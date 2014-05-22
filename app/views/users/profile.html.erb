@@ -3,5 +3,6 @@
 <% @user.wallpapers.each do |wallpaper|  %>
 <div class="my_wallpapers">
 	<%= image_tag "http://placehold.it/300x187" %>
+	<a href="<%=wallpaper.url%>" download="wallpaper<%= wallpaper.id %>.jpg">Download</a>
 </div>
 <% end %>
