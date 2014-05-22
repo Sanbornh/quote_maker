@@ -13,6 +13,7 @@ class Wallpaper < ActiveRecord::Base
 		draw_lines
 		composite_image
 		save_image
+		generate_thumb
 	end
 
 	# Note that anything coming in from layout_scheme is 
@@ -128,5 +129,10 @@ class Wallpaper < ActiveRecord::Base
 		  region: "us-west-2"
 		)
 		@bucket = @s3.buckets[S3_CREDENTIALS["bucket"]]
+	end
+
+	def generate_thumb
+		@bucket.objects["thumb-#{self.id}.jpg"].write(@canvas.scale(300, 187).to_blob)
+		self.update_attribute(:thumb, "https://s3-us-west-2.amazonaws.com/quote-maker-storage/thumb-#{self.id}.jpg")
 	end
 end
