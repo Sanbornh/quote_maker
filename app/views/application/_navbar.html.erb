@@ -9,8 +9,6 @@
 			<%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
 		<% end %>
 
-		<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, :id=>"flash_#{name}" %>
-		<% end %>
+		
 	</span>
 </div>
