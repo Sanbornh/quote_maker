@@ -1,13 +1,15 @@
+// ---- GENERAL STYLING ---- \\
+
 * {
 	font-size: 18pt;
 	font-family: "Lato", sans-serif;
 }
 
-
 .page-wrapper {
 	background-color: $background;
 }
 
+// ------ ARROW STYLES ----- \\
 .arrow {
 	border-top: 2px solid $greyed-out;
 	border-left: 2px solid $greyed-out;
@@ -34,6 +36,8 @@
 	-webkit-filter: blur(10px);	
 }
 
+// ---- TEXTBOX INPUT ---- \\
+
 #wallpaper_quote {
 	padding-top: 2%;
 	padding-left: 3%;
@@ -44,3 +48,15 @@
 textarea:focus, .selected {
 	outline: 2px solid $orange;
 }
+
+// ------ SWATCHES ------ \\
+// NOTE: Actual swatch colors are 
+// applied with js because they are
+// being applied based on the data
+// attributes set from color schemes 
+// in db.
+
+.swatch {
+	border: 2px solid $dark-grey;
+}
+
