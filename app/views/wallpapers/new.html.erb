@@ -10,7 +10,7 @@
 			<li class="form-elements">
 				<%= form_for @wallpaper do |f| %>
 				<div class="form-element" id="quote-box-wrapper">
-					<%= f.text_area :quote, placeholder: "True friends stab you in the front." %>		
+					<%# f.text_area :quote, placeholder: "True friends stab you in the front." %>		
 				</div>
 				<div class="form-element" id="swatches">
 
@@ -19,21 +19,21 @@
 					</div>
 
 					<div class="swatch">
-						<div></div>
-						<div></div>
-						<div></div>	
+						<div class="swatch-color" data-color=<%= @colour_schemes[0].background %>></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[0].highlight %>> </div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[0].font %>>      </div>
 					</div>
 
 					<div class="swatch">
-						<div></div>
-						<div></div>
-						<div></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[1].background %>></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[1].highlight %>> </div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[1].font %>>      </div>
 					</div>
 
 					<div class="swatch">
-						<div></div>
-						<div></div>
-						<div></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[2].background %>></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[2].highlight %>> </div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[2].font %>>      </div>
 					</div>	
 
 				</div>

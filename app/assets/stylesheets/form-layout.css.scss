@@ -69,7 +69,7 @@ textarea {
 	@include center-vert-and-hor;
 
 	&:nth-child(3) {
-		display: none;
+		// display: none;
 		width: 50%;
 		height: 70%;
 		@include center-vert-and-hor;
