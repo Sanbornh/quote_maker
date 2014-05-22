@@ -41,6 +41,6 @@
 	background-color: $light-grey;
 }
 
-textarea:focus {
+textarea:focus, .selected {
 	outline: 2px solid $orange;
 }
