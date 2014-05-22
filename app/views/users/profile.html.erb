@@ -1,0 +1,7 @@
+<div id="title_bar"><h1>Your Name</h1></div>
+
+<% @user.wallpapers.each do |wallpaper|  %>
+<div class="my_wallpapers">
+	<%= image_tag "http://placehold.it/300x187" %>
+</div>
+<% end %>

@@ -17,11 +17,19 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-}
-
-* {
+	font-family: "Lato", sans-serif;
 	box-sizing:border-box;
 }
+h1{
+	line-height: 2.25em;
+	margin-left: 1rem;
+	font-size: default;
+}
+h2{
+	font-size: 1.5em;
+	line-height:3rem;
+}
+
 
 html, body{
 	height:100%;
@@ -215,5 +223,6 @@ a, a:visited, a:active, a:hover {
 
 }
 //end of layout field nesting
+
 
 

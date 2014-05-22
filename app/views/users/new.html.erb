@@ -1,33 +1,29 @@
-<h2>Sign Up</h2>
+<div class="login_signup_form_box">
+	<h2>Sign Up</h2>
 
-<%= form_for @user do |f| %>
-	
-	<% if @user.errors.any? %>
-		<div class="error_messages">
-			<h2>Form is invalid</h2>
-			<ul>
-			</ul>
-				<% for message in @user.errors.full_messages %>
-					<li><%=message %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-
-	<div class="field">
-		<%= f.label :email %><br/>
-		<%= f.text_field :email %>
-	</div>
-	<div class="field">
-		<%= f.label :password %><br/>
-		<%= f.password_field :password %>
-	</div>
-	<div class="field">
-		<%= f.label :password_confirmation %><br/>
-		<%= f.password_field :password_confirmation %>
-	</div>
+	<%= form_for @user do |f| %>
+		
+		<%= render 'errors' %>
+		
 		<div class="field">
-		<%= f.submit "Thanks" %>
-	</div>
+			<%= f.label :name %><br/>
+			<%= f.text_field :name %>
+		</div>
+		<div class="field">
+			<%= f.label :email %><br/>
+			<%= f.text_field :email %>
+		</div>
+		<div class="field">
+			<%= f.label :password %><br/>
+			<%= f.password_field :password %>
+		</div>
+		<div class="field">
+			<%= f.label :password_confirmation %><br/>
+			<%= f.password_field :password_confirmation %>
+		</div><br/>
+		<div class="field">
+			<%= f.submit "Thanks" %>
+		</div>
 
-<% end %>
+	<% end %>
+</div>
