@@ -1,6 +1,6 @@
 <div id="nav_bar">	
 	<span id="home"><%= link_to("New Wallpaper", new_wallpaper_path) %></span>
-	<span id="profile"><%= link_to("New Wallpaper", profile_users_path) %></span>
+	<span id="profile"><%= link_to("My Profile", profile_users_path) %></span>
 	<span id="login_status">
 		<% if current_user %>
 			Logged in as <%= current_user.email %>.
