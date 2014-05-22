@@ -7,6 +7,20 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-ColourScheme.create(background: "#193441", font: "#fcfff5", highlight: "#d1dbbd")
-ColourScheme.create(background: "#76111c", font: "#fffbf7", highlight: "#d29d9e")
-ColourScheme.create(background: "#0c441d", font: "#f9fff7", highlight: "#c0e5b4")
+ColourScheme.create(
+	background:  "rgb(4,27,38)", 
+	font:    "rgb(238,247,251)", 
+	highlight: "rgb(33,99,131)",
+)
+
+ColourScheme.create(
+	background:  "rgb(118,17,28)", 
+	font:      "rgb(255,251,247)", 
+	highlight: "rgb(210,157,158)",
+)
+
+ColourScheme.create(
+	background:   "rgb(12,68,29)", 
+	font:      "rgb(249,255,247)", 
+	highlight: "rgb(192,229,180)",
+)
