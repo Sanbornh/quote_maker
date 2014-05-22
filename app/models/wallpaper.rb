@@ -67,7 +67,6 @@ class Wallpaper < ActiveRecord::Base
 		metrics = @text.get_multiline_type_metrics(@canvas, @quote)
 		@quote_width = metrics[:width]
 		@quote_height = metrics[:height]
-		binding.pry
 	end
 
 	# Sourced from github/cmdrkeene/memegen
@@ -83,7 +82,6 @@ class Wallpaper < ActiveRecord::Base
 
 	  	# @x = 230
 	  	# @y = 1800 - @quote_height
-	  	# binding.pry
 	  else
 	  	@x = (@canvas_width / 2) - (@quote_width / 2)
 	  	@y = (@canvas_height / 2) - (@quote_height / 3)
