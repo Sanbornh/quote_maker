@@ -19,6 +19,8 @@ class Wallpaper < ActiveRecord::Base
 		@canvas_width = 2880
 		@canvas_height = 1800
 		@quote = self.quote
+		@font_size = self.layout_scheme.font_size.to_i
+		@col = self.layout_scheme.col.to_i
 	end
 
 	# Note that it's necessary to store the background 
@@ -32,7 +34,7 @@ class Wallpaper < ActiveRecord::Base
 	def set_styling
 		@text = Magick::Draw.new
 		@text.font = "#{Rails.root}/lib/fonts/#{self.layout_scheme.font}.ttf"
-		@text.pointsize = self.layout_scheme.font_size.to_i
+		@text.pointsize = @font_size
 		@text.align = Magick::LeftAlign
 	end
 
@@ -48,7 +50,7 @@ class Wallpaper < ActiveRecord::Base
 		if word_count <= 11
 			@quote
 		else
-			@quote = word_wrap(@quote, 50)
+			@quote = word_wrap(@quote, @col)
 		end	
 	end
 
@@ -59,7 +61,7 @@ class Wallpaper < ActiveRecord::Base
 	end
 
 	# Sourced from github/cmdrkeene/memegen
-	def word_wrap(txt, col = 50)
+	def word_wrap(txt, col = 80)
   	txt.gsub(/(.{1,#{col + 4}})(\s+|\Z)/, "\\1\n")
   end
 
