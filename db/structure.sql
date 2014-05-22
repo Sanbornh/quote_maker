@@ -195,7 +195,8 @@ CREATE TABLE wallpapers (
     colour_scheme_id integer,
     url character varying(255),
     layout_scheme_id integer,
-    user_id integer
+    user_id integer,
+    thumb character varying(255)
 );
 
 
@@ -340,3 +341,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140521203200');
 INSERT INTO schema_migrations (version) VALUES ('20140521232127');
 
 INSERT INTO schema_migrations (version) VALUES ('20140522213418');
+
+INSERT INTO schema_migrations (version) VALUES ('20140522221748');
