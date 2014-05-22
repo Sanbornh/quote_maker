@@ -67,6 +67,7 @@ class Wallpaper < ActiveRecord::Base
 		metrics = @text.get_multiline_type_metrics(@canvas, @quote)
 		@quote_width = metrics[:width]
 		@quote_height = metrics[:height]
+		binding.pry
 	end
 
 	# Sourced from github/cmdrkeene/memegen
@@ -77,8 +78,9 @@ class Wallpaper < ActiveRecord::Base
   def establish_coordinates
   	if @position == "bottom-left"
 	  	@x = 230
-	  	@y = 1500
-	  	binding.pry
+	  	@y = 1800 - @quote_height
+	  	# @y = 1500 - (@quote_height - 100)
+	  	# binding.pry
 	  else
 	  	@x = (@canvas_width / 2) - (@quote_width / 2)
 	  	@y = (@canvas_height / 2) - (@quote_height / 3)
@@ -98,7 +100,7 @@ class Wallpaper < ActiveRecord::Base
 	# so that it is scoped correctly when called in block!!
 	def composite_image
 		color = self.colour_scheme.font
-		@text.annotate(@canvas, @canvas_width, @canvas_height, @x, @y, @quote) { self.fill = color }
+		@text.annotate(@canvas, 0, 0, @x, @y, @quote) { self.fill = color }
 
 		if @quote_marks
 			@text.annotate(@canvas, 0, 0, (@x - 28), @y, "“") {self.fill = color }
