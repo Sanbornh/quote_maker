@@ -11,7 +11,10 @@ QuoteMaker::Application.routes.draw do
   get "signup"=>"users#new", :as=>"signup"
 
   
-  resources :users, only: [:new, :create,]
+  resources :users, only: [:new, :create,] do
+    get 'profile', on: :collection, as: "profile"
+  end
+
   resources :sessions, only: [:new, :create]
   resources :wallpapers, only: [:new, :create]
   

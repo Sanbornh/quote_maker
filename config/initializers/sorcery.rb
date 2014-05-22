@@ -114,7 +114,7 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
   config.facebook.user_info_mapping = {:email => "email"}
   config.facebook.access_permissions = ["email"]
-  #
+  
   # config.github.key = "
   # config.github.secret = ""
   # config.github.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=github"
