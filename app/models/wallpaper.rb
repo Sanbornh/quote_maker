@@ -10,15 +10,26 @@ class Wallpaper < ActiveRecord::Base
 		set_styling
 		prep_quote
 		establish_coordinates
+		draw_lines
 		composite_image
 		save_image
 	end
 
+	# Note that anything coming in from layout_scheme is 
+	# coming in as a string because LayoutScheme stores it
+	# in an hstore. If you are expecting integers, you must explicitly
+	# convert them and THERE ARE NO BOOLEAN VALUES. 
 	def init_variables
 		@canvas = Magick::ImageList.new 
 		@canvas_width = 2880
 		@canvas_height = 1800
 		@quote = self.quote
+		@highlight = self.colour_scheme.highlight
+		@quote_marks = self.layout_scheme.quote_marks 
+		@font_size = self.layout_scheme.font_size.to_i
+		@col = self.layout_scheme.col.to_i
+		@position = self.layout_scheme.position
+		@underline = self.layout_scheme.underline
 	end
 
 	# Note that it's necessary to store the background 
@@ -32,12 +43,12 @@ class Wallpaper < ActiveRecord::Base
 	def set_styling
 		@text = Magick::Draw.new
 		@text.font = "#{Rails.root}/lib/fonts/#{self.layout_scheme.font}.ttf"
-		@text.pointsize = self.layout_scheme.font_size.to_i
+		@text.pointsize = @font_size
 		@text.align = Magick::LeftAlign
 	end
 
 	def prep_quote
-		if self.layout_scheme.quote_marks then @quote << "”" end
+		if @quote_marks then @quote << "”" end
 		wrap_quote
 		get_quote_dimensions
 	end
@@ -48,7 +59,7 @@ class Wallpaper < ActiveRecord::Base
 		if word_count <= 11
 			@quote
 		else
-			@quote = word_wrap(@quote, 50)
+			@quote = word_wrap(@quote, @col)
 		end	
 	end
 
@@ -56,18 +67,42 @@ class Wallpaper < ActiveRecord::Base
 		metrics = @text.get_multiline_type_metrics(@canvas, @quote)
 		@quote_width = metrics[:width]
 		@quote_height = metrics[:height]
+		binding.pry
 	end
 
 	# Sourced from github/cmdrkeene/memegen
-	def word_wrap(txt, col = 50)
+	def word_wrap(txt, col = 80)
   	txt.gsub(/(.{1,#{col + 4}})(\s+|\Z)/, "\\1\n")
   end
 
   def establish_coordinates
-  	@x = (@canvas_width / 2) - (@quote_width / 2)
-  	@y = (@canvas_height / 2) - (@quote_height / 3)
+  	if @position == "bottom-left"
+  		@x = 0
+  		@y = 0
+  		# @text.gravity = Magick::SouthWestGravity
+
+	  	# @x = 230
+	  	# @y = 1800 - @quote_height
+	  	# binding.pry
+	  else
+	  	@x = (@canvas_width / 2) - (@quote_width / 2)
+	  	@y = (@canvas_height / 2) - (@quote_height / 3)
+	  end
   end
 
+  def draw_lines
+  	if @underline
+  		@line = Magick::Draw::new
+  		@line.rectangle(230,1500,2370,1510)
+  		@line.fill = @highlight
+  		@line.draw(@canvas)
+
+  		@line = Magick::Draw::new
+  		@line.rectangle(230,1530,2370,1550)
+  		@line.fill = self.colour_scheme.font
+  		@line.draw(@canvas)
+  	end
+  end
 	# Note that it's necessary to store the background 
 	# color in a local variable and NOT an instance variable
 	# so that it is scoped correctly when called in block!!
@@ -75,7 +110,7 @@ class Wallpaper < ActiveRecord::Base
 		color = self.colour_scheme.font
 		@text.annotate(@canvas, 0, 0, @x, @y, @quote) { self.fill = color }
 
-		if self.layout_scheme.quote_marks
+		if @quote_marks
 			@text.annotate(@canvas, 0, 0, (@x - 28), @y, "“") {self.fill = color }
 		end
 	end
