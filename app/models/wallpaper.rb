@@ -85,7 +85,7 @@ class Wallpaper < ActiveRecord::Base
 
 		@canvas.format = 'jpg'
 		@bucket.objects["wallpaper-#{self.id}.jpg"].write(@canvas.to_blob)
-		self.url = "https://s3-us-west-2.amazonaws.com/quote-maker-storage/wallpaper-#{self.id}.jpg"
+		self.update_attribute(:url, "https://s3-us-west-2.amazonaws.com/quote-maker-storage/wallpaper-#{self.id}.jpg")
 	end
 
 	def establish_connection_to_s3

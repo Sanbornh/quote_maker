@@ -8,7 +8,8 @@ class WallpapersController < ApplicationController
 
 	def create
 		@wallpaper = Wallpaper.new(wallpaper_params)
-		
+		if current_user then @wallpaper.user_id = current_user.id end
+
 		if @wallpaper.save
 			@wallpaper.create_image
 			redirect_to @wallpaper.url

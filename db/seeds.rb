@@ -16,4 +16,5 @@ LayoutScheme.create(layout_parameters: {
 LayoutScheme.create(layout_parameters: {
 	font: "OpenSans-Bold",
 	font_size: 200,
+	underline: true
 })
