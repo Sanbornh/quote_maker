@@ -14,13 +14,20 @@ class Wallpaper < ActiveRecord::Base
 		save_image
 	end
 
+	# Note that anything coming in from layout_scheme is 
+	# coming in as a string because LayoutScheme stores it
+	# in an hstore. If you are expecting integers, you must explicitly
+	# convert them and THERE ARE NO BOOLEAN VALUES. 
 	def init_variables
+		binding.pry
 		@canvas = Magick::ImageList.new 
 		@canvas_width = 2880
 		@canvas_height = 1800
 		@quote = self.quote
+		@quote_marks = self.layout_scheme.quote_marks 
 		@font_size = self.layout_scheme.font_size.to_i
 		@col = self.layout_scheme.col.to_i
+		@position = self.layout_scheme.position
 	end
 
 	# Note that it's necessary to store the background 
@@ -39,7 +46,7 @@ class Wallpaper < ActiveRecord::Base
 	end
 
 	def prep_quote
-		if self.layout_scheme.quote_marks then @quote << "”" end
+		if @quote_marks then @quote << "”" end
 		wrap_quote
 		get_quote_dimensions
 	end
@@ -66,8 +73,13 @@ class Wallpaper < ActiveRecord::Base
   end
 
   def establish_coordinates
-  	@x = (@canvas_width / 2) - (@quote_width / 2)
-  	@y = (@canvas_height / 2) - (@quote_height / 3)
+  	if @position == "bottom-left"
+	  	@x = 230
+	  	@y = 1500 - @quote_height
+	  else
+	  	@x = (@canvas_width / 2) - (@quote_width / 2)
+	  	@y = (@canvas_height / 2) - (@quote_height / 3)
+	  end
   end
 
 	# Note that it's necessary to store the background 
@@ -77,7 +89,7 @@ class Wallpaper < ActiveRecord::Base
 		color = self.colour_scheme.font
 		@text.annotate(@canvas, 0, 0, @x, @y, @quote) { self.fill = color }
 
-		if self.layout_scheme.quote_marks
+		if @quote_marks
 			@text.annotate(@canvas, 0, 0, (@x - 28), @y, "“") {self.fill = color }
 		end
 	end
