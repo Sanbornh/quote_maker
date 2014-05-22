@@ -10,6 +10,7 @@ class Wallpaper < ActiveRecord::Base
 		set_styling
 		prep_quote
 		establish_coordinates
+		draw_lines
 		composite_image
 		save_image
 	end
@@ -19,15 +20,16 @@ class Wallpaper < ActiveRecord::Base
 	# in an hstore. If you are expecting integers, you must explicitly
 	# convert them and THERE ARE NO BOOLEAN VALUES. 
 	def init_variables
-		binding.pry
 		@canvas = Magick::ImageList.new 
 		@canvas_width = 2880
 		@canvas_height = 1800
 		@quote = self.quote
+		@highlight = self.colour_scheme.highlight
 		@quote_marks = self.layout_scheme.quote_marks 
 		@font_size = self.layout_scheme.font_size.to_i
 		@col = self.layout_scheme.col.to_i
 		@position = self.layout_scheme.position
+		@underline = self.layout_scheme.underline
 	end
 
 	# Note that it's necessary to store the background 
@@ -75,19 +77,28 @@ class Wallpaper < ActiveRecord::Base
   def establish_coordinates
   	if @position == "bottom-left"
 	  	@x = 230
-	  	@y = 1500 - @quote_height
+	  	@y = 1500
+	  	binding.pry
 	  else
 	  	@x = (@canvas_width / 2) - (@quote_width / 2)
 	  	@y = (@canvas_height / 2) - (@quote_height / 3)
 	  end
   end
 
+  def draw_lines
+  	if @underline
+  		@line = Magick::Draw::new
+  		@line.rectangle(230,1500,2370,1510)
+  		@line.fill = @highlight
+  		@line.draw(@canvas)
+  	end
+  end
 	# Note that it's necessary to store the background 
 	# color in a local variable and NOT an instance variable
 	# so that it is scoped correctly when called in block!!
 	def composite_image
 		color = self.colour_scheme.font
-		@text.annotate(@canvas, 0, 0, @x, @y, @quote) { self.fill = color }
+		@text.annotate(@canvas, @canvas_width, @canvas_height, @x, @y, @quote) { self.fill = color }
 
 		if @quote_marks
 			@text.annotate(@canvas, 0, 0, (@x - 28), @y, "“") {self.fill = color }
