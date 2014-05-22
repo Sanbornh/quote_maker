@@ -13,6 +13,7 @@ class Wallpaper < ActiveRecord::Base
 		draw_lines
 		composite_image
 		save_image
+		generate_thumb
 	end
 
 	# Note that anything coming in from layout_scheme is 
@@ -67,7 +68,6 @@ class Wallpaper < ActiveRecord::Base
 		metrics = @text.get_multiline_type_metrics(@canvas, @quote)
 		@quote_width = metrics[:width]
 		@quote_height = metrics[:height]
-		binding.pry
 	end
 
 	# Sourced from github/cmdrkeene/memegen
@@ -83,7 +83,6 @@ class Wallpaper < ActiveRecord::Base
 
 	  	# @x = 230
 	  	# @y = 1800 - @quote_height
-	  	# binding.pry
 	  else
 	  	@x = (@canvas_width / 2) - (@quote_width / 2)
 	  	@y = (@canvas_height / 2) - (@quote_height / 3)
@@ -130,5 +129,10 @@ class Wallpaper < ActiveRecord::Base
 		  region: "us-west-2"
 		)
 		@bucket = @s3.buckets[S3_CREDENTIALS["bucket"]]
+	end
+
+	def generate_thumb
+		@bucket.objects["thumb-#{self.id}.jpg"].write(@canvas.scale(300, 187).to_blob)
+		self.update_attribute(:thumb, "https://s3-us-west-2.amazonaws.com/quote-maker-storage/thumb-#{self.id}.jpg")
 	end
 end
