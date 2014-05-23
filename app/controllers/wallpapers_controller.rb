@@ -19,7 +19,12 @@ class WallpapersController < ApplicationController
 	end
 
 	def preview
+	end
 
+	def destroy
+		@wallpaper = Wallpaper.find(params[:id])
+		@wallpaper.destroy
+		redirect_to profile_users_path
 	end
 
 	private

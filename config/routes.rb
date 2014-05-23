@@ -16,7 +16,7 @@ QuoteMaker::Application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create]
-  resources :wallpapers, only: [:new, :create]
+  resources :wallpapers, only: [:new, :create, :destroy]
   
   get '/preview/:id', to: 'wallpapers#preview', as: :preview
 

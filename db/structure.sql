@@ -194,8 +194,8 @@ CREATE TABLE wallpapers (
     updated_at timestamp without time zone,
     colour_scheme_id integer,
     url character varying(255),
-    layout_scheme_id integer,
     user_id integer,
+    layout_scheme_id integer,
     thumb character varying(255)
 );
 
