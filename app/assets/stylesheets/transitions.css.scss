@@ -198,7 +198,7 @@ a, a:visited, a:active, a:hover {
 #layout_field{
 	border:$test_border;
 	height:60%;
-	width:50%;
+	width:58%;
 	margin-right: $field_start_pos;
 	opacity:0;
 	z-index: 0;
@@ -211,11 +211,19 @@ a, a:visited, a:active, a:hover {
 	input[type=radio] + label{
 		position:relative;
 		float:left;
-		background:url("http://placehold.it/200x125");
-		width:200px;
-		height:125px;
+		// background:url("http://placehold.it/200x125");
+		width:300px;
+		height:188px;
 		margin-top:0.5rem;
 		margin-left:0.5rem;
+
+		&:nth-child(2) {
+			background:url(image_path("Layout1.jpg"));
+		}
+
+		&:nth-child(4) {
+			background:url(image_path("Layout2.jpg"));
+		}
 	}
 
 	input[type=radio]:checked + label{
