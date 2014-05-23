@@ -12,13 +12,14 @@ class WallpapersController < ApplicationController
 
 		if @wallpaper.save
 			@wallpaper.create_image
-			render :preview
+			redirect_to wallpaper_path(@wallpaper.id)
 		else
 			render :new
 		end
 	end
 
-	def preview
+	def show
+		@wallpaper = Wallpaper.find(params[:id])
 	end
 
 	def destroy

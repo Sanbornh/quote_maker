@@ -78,7 +78,7 @@ class Wallpaper < ActiveRecord::Base
   def establish_coordinates
   	if @position == "bottom-left"
   		@x = 300
-  		@y = 1800 - @quote_height
+  		@y = 1700 - @quote_height
 	  else
 	  	@x = (@canvas_width / 2) - (@quote_width / 2)
 	  	@y = (@canvas_height / 2) - (@quote_height / 3)
