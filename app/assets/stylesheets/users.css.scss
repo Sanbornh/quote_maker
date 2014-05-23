@@ -1,9 +1,10 @@
 
 
 #nav_bar{
-	position:relative;
+	position:absolute;
 	height: 10%;
 	width:100%;
+	z-index:1;
 	
 	#home{
 		margin:5px;
