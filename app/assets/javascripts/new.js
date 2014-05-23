@@ -1,14 +1,49 @@
+var currentField = 0;
+var formFields = [
+	"#quote-box-wrapper",
+	"#swatches-wrapper",
+	"#layout-thumbs-wrapper"
+];
+
 $( document ).ready(function(){
 
+
+	// Advance form field by one step
 	$("#arrow-right").click(function() {
-		$("#quote-box-wrapper").diagonalFade({
-			time: 300,
-			fadeDirection_x: 'right-left', // "left-right" || "right-left"
-			fade: 'out',                   // "in" || "out"
-			}).animate({
-	      "left": "-60px"
-      }, {duration: 300, queue: false}, function() {
-    });
+		$(formFields[currentField]).fadeOut(300).animate({
+			'left': '-=60px'
+		}, {
+			duration: 500, 
+			queue: false
+		}, function() {});
+
+		$(formFields[currentField + 1]).delay(300).fadeIn(300).animate({
+			'right': '+=60px'
+		}, {
+			duration: 500, 
+			queue: false
+		}, function() {});
+
+		currentField++;
+	});
+
+	// Revert form field by one step
+	$("#arrow-left").click(function() {
+		$(formFields[currentField]).fadeOut(300).animate({
+			'right': '-=60px'
+		}, {
+			duration: 500, 
+			queue: false
+		}, function() {});
+
+		$(formFields[currentField - 1]).delay(300).fadeIn(300).animate({
+			'left': '+=60px'
+		}, {
+			duration: 500, 
+			queue: false
+		}, function() {});
+
+		currentField--;
 	});
 
 
@@ -19,6 +54,8 @@ $( document ).ready(function(){
 	for(i = 0; i < colorsLocations.length; i++ ) {
 		$(colorsLocations[i]).css("background-color", $(colorsLocations[i]).data("color"));
 	};
+
+
 
 	// This function handles user selection of a colour scheme
 	// by filling a hidden form field with the id of the 
@@ -37,7 +74,5 @@ $( document ).ready(function(){
 				$(swatches[i]).removeClass( 'selected' );
 			}
 		};
-
 	});
-
 });

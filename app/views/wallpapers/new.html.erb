@@ -10,9 +10,10 @@
 			<li class="form-elements">
 				<%= form_for @wallpaper do |f| %>
 				<div class="form-element" id="quote-box-wrapper">
-					<%# f.text_area :quote, placeholder: "True friends stab you in the front." %>		
+					<%= f.text_area :quote, placeholder: "True friends stab you in the front." %>		
 				</div>
-				<div class="form-element" id="swatches">
+
+				<div class="form-element" id="swatches-wrapper">
 
 					<div id="hidden-colour-field">
 						<%= f.hidden_field :colour_scheme_id, value: 1 %>
@@ -37,7 +38,14 @@
 					</div>	
 
 				</div>
-				<div class="form-element"></div>	
+
+				<div class="form-element" id="layout-thumbs-wrapper">
+
+					<div id="hidden-layout-field">
+						<%= f.hidden_field :layout_scheme_id, value: 1 %>
+					</div>
+
+				</div>	
 				<% end %>
 			</li>
 
