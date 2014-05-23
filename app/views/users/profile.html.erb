@@ -4,5 +4,6 @@
 <div class="my_wallpapers">
 	<%= image_tag wallpaper.thumb %>
 	<a href="<%=wallpaper.url%>" download="wallpaper<%= wallpaper.id %>.jpg">Download</a>
+	<%= link_to 'Delete', wallpaper_path(wallpaper.id), confirm: "Delete this wallpaper?", method: :delete %>
 </div>
 <% end %>
