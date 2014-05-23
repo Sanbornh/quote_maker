@@ -77,12 +77,8 @@ class Wallpaper < ActiveRecord::Base
 
   def establish_coordinates
   	if @position == "bottom-left"
-  		@x = 0
-  		@y = 0
-  		# @text.gravity = Magick::SouthWestGravity
-
-	  	# @x = 230
-	  	# @y = 1800 - @quote_height
+  		@x = 300
+  		@y = 1800 - @quote_height
 	  else
 	  	@x = (@canvas_width / 2) - (@quote_width / 2)
 	  	@y = (@canvas_height / 2) - (@quote_height / 3)
@@ -92,12 +88,12 @@ class Wallpaper < ActiveRecord::Base
   def draw_lines
   	if @underline
   		@line = Magick::Draw::new
-  		@line.rectangle(230,1500,2370,1510)
+  		@line.rectangle(300,1500,2400,1510)
   		@line.fill = @highlight
   		@line.draw(@canvas)
 
   		@line = Magick::Draw::new
-  		@line.rectangle(230,1530,2370,1550)
+  		@line.rectangle(300,1530,2400,1550)
   		@line.fill = self.colour_scheme.font
   		@line.draw(@canvas)
   	end
