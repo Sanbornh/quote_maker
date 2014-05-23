@@ -5,14 +5,14 @@ $(document).ready(function(){
 
 	function moveHide(target){
 		$(target).animate({
-    	marginLeft:"-=60%",
+    	marginLeft:"-=55%",
     	opacity:"0"
 		},time);
 	}
 
 	function moveShow(target){
 		$(target).animate({
-	    	marginLeft:"-=60%",
+	    	marginLeft:"-=55%",
 	    	opacity:"1"	    	
 	    },time);
 	}
