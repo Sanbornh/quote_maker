@@ -30,7 +30,7 @@ LayoutScheme.create(layout_parameters: {
 	font: "Cardo-Regular",
 	font_size: 60,
 	quote_marks: true,
-	col: 80,
+	col: 40,
 	position: "center"
 })
 
