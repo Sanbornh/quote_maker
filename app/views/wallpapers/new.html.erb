@@ -44,8 +44,14 @@
 					<div id="hidden-layout-field">
 						<%= f.hidden_field :layout_scheme_id, value: 1 %>
 					</div>
+					
+					<div>
+						
+						<!-- FOR LAYOUT SCHEMES -->
+					</div>
 
 				</div>	
+
 				<% end %>
 			</li>
 
@@ -56,50 +62,4 @@
 
 		</ul>
 	</div>
-</div>
-
-
-
-		<div id="quote_field">
-			<%# f.text_area :quote, placeholder: "Enter a quote" %>
-		</div>
-
-		<div id="colour_field">	
-
-			<div id="swatch_wrapper"> 
-				<%# f.radio_button :colour_scheme_id, @colour_schemes[0].id %>
-				<%# f.label :colour_scheme_id, :colour_schemes[0], value: @colour_schemes[0].id, id: "first"  %>
-				
-				<%# f.radio_button :colour_scheme_id, @colour_schemes[1].id %>
-				<%# f.label :colour_scheme_id, :colour_schemes[1], value: @colour_schemes[1].id, id: "second" %>
-				
-				<%# f.radio_button :colour_scheme_id, @colour_schemes[2].id %>
-				<%# f.label :colour_scheme_id, :colour_schemes[2], value: @colour_schemes[2].id, id: "third" %>
-			</div>
-		</div>
-
-		<div id="layout_field">
-			<div id="layout_radios">
-				
-				
-				<%# f.radio_button :layout_scheme, "1" %>
-				<label for="wallpaper_layout_scheme_1"></label>
-				
-				<%# f.radio_button :layout_scheme, "2" %>
-				<label for="wallpaper_layout_scheme_2"></label>
-				
-				<%# f.radio_button :layout_scheme, "3" %>
-				<label for="wallpaper_layout_scheme_3"></label>
-
-			</div>
-			
-
-		</div>
-		
-		<div id="submit_field">
-			<%# f.submit "Preview", id: "preview" %>
-		</div>	
-	<%# end %>
-	
-	<div id="arrow_right"><%# image_tag("right.png") %></div>
 </div>
