@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520235339) do
+ActiveRecord::Schema.define(version: 20140527160722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "authentications", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "colour_schemes", force: true do |t|
     t.string   "background"
@@ -24,13 +33,33 @@ ActiveRecord::Schema.define(version: 20140520235339) do
     t.datetime "updated_at"
   end
 
+  create_table "layout_schemes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.hstore   "layout_parameters"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email",            null: false
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+
   create_table "wallpapers", force: true do |t|
     t.text     "quote"
-    t.string   "layout_scheme"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "colour_scheme_id"
     t.string   "url"
+    t.integer  "layout_scheme_id"
+    t.integer  "user_id"
+    t.string   "thumb"
+    t.string   "citation"
   end
 
 end

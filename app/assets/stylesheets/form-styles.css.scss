@@ -38,14 +38,20 @@
 
 // ---- TEXTBOX INPUT ---- \\
 
-#wallpaper_quote {
-	padding-top: 2%;
-	padding-left: 3%;
-	border: none;
+#wallpaper_quote, #wallpaper_citation {
+	border: 2px solid $greyed-out;
 	background-color: $light-grey;
 }
 
-textarea:focus, .selected {
+#wallpaper_quote {
+	padding: 2% 0 0 3%;
+}
+
+#wallpaper_citation {
+	padding: 2% 0 2% 3%;
+}
+
+textarea:focus, input:focus, .selected {
 	outline: 2px solid $orange;
 }
 

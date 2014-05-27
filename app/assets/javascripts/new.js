@@ -1,6 +1,7 @@
 var currentField = 0;
 var formFields = [
 	"#quote-box-wrapper",
+	"#citation-box-wrapper",
 	"#swatches-wrapper",
 	"#layout-thumbs-wrapper"
 ];
