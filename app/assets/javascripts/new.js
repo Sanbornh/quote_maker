@@ -67,12 +67,12 @@ $( document ).ready(function(){
 		var swatches = $('.swatch')
 
 		$('#wallpaper_colour_scheme_id').val($(clicked).data('color-scheme-id'));
-		$(clicked).addClass( 'selected' );
+		$(clicked).addClass( 'selected-color' );
 
 		for(i = 0; i < swatches.length; i++ ) {
 			console.log(i + $(swatches[i]))
-			if($(swatches[i]).hasClass('selected') && (swatches[i] != this)) {
-				$(swatches[i]).removeClass( 'selected' );
+			if($(swatches[i]).hasClass('selected-color') && (swatches[i] != this)) {
+				$(swatches[i]).removeClass( 'selected-color' );
 			}
 		};
 	});
