@@ -54,7 +54,6 @@ textarea {
 	height: 100%;
 }
 
-
 .form-element {
 	@include center-vert-and-hor;
 
@@ -73,12 +72,7 @@ textarea {
 		}
 	}
 
-	&:nth-child(4) {
-		width: 50%;
-		height: 70%;
-	}
-
-	&:nth-child(5) {
+	&:nth-child(4), &:nth-child(5) {
 		width: 50%;
 		height: 70%;
 	}
