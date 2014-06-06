@@ -76,4 +76,24 @@ $( document ).ready(function(){
 			}
 		};
 	});
+
+	// This function handles user selection of a layout scheme
+	// by filling a hidden form field with the id of the 
+	// layout that is clicked on by the user.
+	$('.layout-scheme').click(function(env) {
+
+		var clicked = env.currentTarget
+		var swatches = $('.layout-scheme')
+
+		$('#wallpaper_layout_scheme_id').val($(clicked).data('layout-scheme-id'));
+		$(clicked).addClass( 'selected-layout' );
+
+		for(i = 0; i < swatches.length; i++ ) {
+			console.log(i + $(swatches[i]))
+			if($(swatches[i]).hasClass('selected-layout') && (swatches[i] != this)) {
+				$(swatches[i]).removeClass( 'selected-layout' );
+			}
+		};
+	});
+
 });
