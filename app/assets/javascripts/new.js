@@ -11,40 +11,44 @@ $( document ).ready(function(){
 
 	// Advance form field by one step
 	$("#arrow-right").click(function() {
-		$(formFields[currentField]).fadeOut(300).animate({
-			'left': '-=60px'
-		}, {
-			duration: 500, 
-			queue: false
-		}, function() {});
+		if(currentField != formFields.length - 1) {
+			$(formFields[currentField]).fadeOut(300).animate({
+				'left': '-=60px'
+			}, {
+				duration: 500, 
+				queue: false
+			}, function() {});
 
-		$(formFields[currentField + 1]).delay(300).fadeIn(300).animate({
-			'right': '+=60px'
-		}, {
-			duration: 500, 
-			queue: false
-		}, function() {});
+			$(formFields[currentField + 1]).delay(300).fadeIn(300).animate({
+				'right': '+=60px'
+			}, {
+				duration: 500, 
+				queue: false
+			}, function() {});
 
-		currentField++;
+			currentField++;
+		}
 	});
 
 	// Revert form field by one step
 	$("#arrow-left").click(function() {
-		$(formFields[currentField]).fadeOut(300).animate({
-			'right': '-=60px'
-		}, {
-			duration: 500, 
-			queue: false
-		}, function() {});
+		if(currentField != 0 ) {
+			$(formFields[currentField]).fadeOut(300).animate({
+				'right': '-=60px'
+			}, {
+				duration: 500, 
+				queue: false
+			}, function() {});
 
-		$(formFields[currentField - 1]).delay(300).fadeIn(300).animate({
-			'left': '+=60px'
-		}, {
-			duration: 500, 
-			queue: false
-		}, function() {});
+			$(formFields[currentField - 1]).delay(300).fadeIn(300).animate({
+				'left': '+=60px'
+			}, {
+				duration: 500, 
+				queue: false
+			}, function() {});
 
-		currentField--;
+			currentField--;
+		}
 	});
 
 
