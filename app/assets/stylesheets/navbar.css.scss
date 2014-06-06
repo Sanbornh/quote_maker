@@ -1,7 +1,19 @@
 #nav-bar {
-	position: fixed;
+	position: absolute;
+	top: 2%;
+	right: 2%;
+
+	a, a:visited, a:link, a:active {
+		color: $greyed-out;	
+	}
+
+	a:hover {
+		color: $dark-grey;
+	}
 }
 
 .nav-buttons {
-	
+	width: 130px;
+	float: right;
+	text-align: center;
 }
