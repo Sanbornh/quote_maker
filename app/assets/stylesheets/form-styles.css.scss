@@ -1,15 +1,15 @@
-::-webkit-input-placeholder {
-    font-size: 2em;
-}
-:-moz-placeholder {
-    font-size: 2em;
-}
-::-moz-placeholder {
-    font-size: 2em;
-}
-:-ms-input-placeholder {
-    font-size: 2em;
-}
+// ::-webkit-input-placeholder {
+//     font-size: 2em;
+// }
+// :-moz-placeholder {
+//     font-size: 2em;
+// }
+// ::-moz-placeholder {
+//     font-size: 2em;
+// }
+// :-ms-input-placeholder {
+//     font-size: 2em;
+// }
 
 // ------ ARROW STYLES ----- \\
 .arrow {
@@ -53,8 +53,13 @@
 	padding: 2% 0 2% 3%;
 }
 
+textarea, textarea:focus, input, input:focus {
+	font-size: 2em;
+}
+
 textarea:focus, input:focus, .selected-color, .selected-layout {
 	outline: 2px solid $orange;
+	// font-size: 2em;
 }
 
 // ------ SWATCHES ------ \\
