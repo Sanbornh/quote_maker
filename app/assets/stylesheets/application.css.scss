@@ -1,6 +1,15 @@
 @import "reset";
+
 @import "mixin";
 @import "colours";
+
+// General styles
+@import "general-styles";
+
+// Main Form
 @import "form-layout";
 @import "form-styles";
+
+// Partials \\
+@import "navbar"
 

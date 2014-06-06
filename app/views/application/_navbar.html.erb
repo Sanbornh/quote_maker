@@ -1,12 +1,15 @@
-<div id="nav_bar">	
-	<span id="home"><%= link_to("New Wallpaper", new_wallpaper_path) -%></span>
-	<span id="profile"><%= link_to("My Profile", profile_users_path) %></span>
-	<span id="login_status">
+<div id="nav-bar">
+	<div class="nav-buttons"><p><%= link_to("New Wallpaper", new_wallpaper_path) %></p></div>
+	<div class="nav-buttons"><p><%= link_to("My Profile", profile_users_path) %></p></div>	
+</div>
+
+	<!-- <span id="home"><p><%# link_to("New Wallpaper", new_wallpaper_path) %></span> -->
+	<!-- <span id="profile"><%# link_to("My Profile", profile_users_path) %></span> -->
+	<!-- <span id="login_status"> -->
 		<%# if current_user %>
-			Logged in as <%# current_user.email %>.
+			<!-- Logged in as <%# current_user.email %>. -->
 			<%# link_to "Log out", logout_path %>
 		<%# else %>
 			<%# link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
 		<%# end %>
-	</span> 
-</div>
+	<!-- </span>  -->

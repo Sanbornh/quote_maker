@@ -1,12 +1,14 @@
-// ---- GENERAL STYLING ---- \\
-
-* {
-	font-size: 18pt;
-	font-family: "Lato", sans-serif;
+::-webkit-input-placeholder {
+    font-size: 2em;
 }
-
-.page-wrapper {
-	background-color: $background;
+:-moz-placeholder {
+    font-size: 2em;
+}
+::-moz-placeholder {
+    font-size: 2em;
+}
+:-ms-input-placeholder {
+    font-size: 2em;
 }
 
 // ------ ARROW STYLES ----- \\

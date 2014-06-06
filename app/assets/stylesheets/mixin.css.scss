@@ -11,11 +11,11 @@
 }
 
 @mixin rotate-image($deg) {
-	transform: rotate($deg);
+	transform: 				 rotate($deg);
 	-webkit-transform: rotate($deg);
-	-moz-transform: rotate($deg);
-	-o-transform: rotate($deg);
-	-ms-transform: rotate($deg);
+	-moz-transform: 	 rotate($deg);
+	-o-transform: 		 rotate($deg);
+	-ms-transform: 		 rotate($deg);
 }
 
 @mixin center-vert-and-hor {
@@ -26,3 +26,4 @@
 	margin: auto;
 	position: absolute;
 }
+
