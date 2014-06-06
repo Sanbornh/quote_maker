@@ -11,11 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140521181003) do
+=======
+ActiveRecord::Schema.define(version: 20140527160722) do
+>>>>>>> 1b63d0716dea302dadbd9b531d8ab6eb5d5e3ff1
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+<<<<<<< HEAD
+=======
+
+  create_table "authentications", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+>>>>>>> 1b63d0716dea302dadbd9b531d8ab6eb5d5e3ff1
 
   create_table "colour_schemes", force: true do |t|
     t.string   "background"
@@ -33,10 +48,18 @@ ActiveRecord::Schema.define(version: 20140521181003) do
 
   create_table "users", force: true do |t|
     t.string   "email",            null: false
+<<<<<<< HEAD
     t.string   "crypted_password", null: false
     t.string   "salt",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+>>>>>>> 1b63d0716dea302dadbd9b531d8ab6eb5d5e3ff1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -49,6 +72,12 @@ ActiveRecord::Schema.define(version: 20140521181003) do
     t.integer  "user_id"
     t.string   "url"
     t.integer  "layout_scheme_id"
+<<<<<<< HEAD
+=======
+    t.integer  "user_id"
+    t.string   "thumb"
+    t.string   "citation"
+>>>>>>> 1b63d0716dea302dadbd9b531d8ab6eb5d5e3ff1
   end
 
 end

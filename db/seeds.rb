@@ -25,7 +25,6 @@ ColourScheme.create(
 )
 
 
-
 LayoutScheme.create(layout_parameters: {
 	font: "Cardo-Regular",
 	font_size: 60,
@@ -41,3 +40,4 @@ LayoutScheme.create(layout_parameters: {
 	col: 20,
 	position: "bottom-left"
 })
+

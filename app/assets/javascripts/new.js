@@ -1,56 +1,99 @@
-$(document).ready(function(){
-	var time = 750;
-	var click = 0;
+var currentField = 0;
+var formFields = [
+	"#quote-box-wrapper",
+	"#citation-box-wrapper",
+	"#swatches-wrapper",
+	"#layout-thumbs-wrapper"
+];
+
+$( document ).ready(function(){
 
 
-	function moveHide(target){
-		$(target).animate({
-    	marginLeft:"-=55%",
-    	opacity:"0"
-		},time);
-	}
+	// Advance form field by one step
+	$("#arrow-right").click(function() {
+		$(formFields[currentField]).fadeOut(300).animate({
+			'left': '-=60px'
+		}, {
+			duration: 500, 
+			queue: false
+		}, function() {});
 
-	function moveShow(target){
-		$(target).animate({
-	    	marginLeft:"-=55%",
-	    	opacity:"1"	    	
-	    },time);
-	}
+		$(formFields[currentField + 1]).delay(300).fadeIn(300).animate({
+			'right': '+=60px'
+		}, {
+			duration: 500, 
+			queue: false
+		}, function() {});
 
-	$("#arrow_right").click(function(){
-
-		if(click==2){
-			moveHide("#layout_field");
-			$("submit_field").css("display","auto");
-			moveShow("#submit_field");
-			$("#arrow_right").fadeOut();
-		}
-
-		if(click==1){
-			moveHide("#colour_field");
-			moveShow("#layout_field");
-			click++;
-		}
-
-		if(click==0){
-			moveHide("#quote_field");
-			moveShow("#colour_field");
-			//$("#arrow_left").fadeIn(1000);
-			click++;	
-		}
+		currentField++;
 	});
 
-	function layout_selection(image, radio_id){
-		$(image).click(function(){
-			$(radio_id).attr('checked',true);
-			$(this).addClass("glow");
-		});
-	}
+	// Revert form field by one step
+	$("#arrow-left").click(function() {
+		$(formFields[currentField]).fadeOut(300).animate({
+			'right': '-=60px'
+		}, {
+			duration: 500, 
+			queue: false
+		}, function() {});
 
-	// layout_selection("#top","#wallpaper_layout_scheme_1");
-	// layout_selection("#middle","#wallpaper_layout_scheme_2");
-	// layout_selection("#bottom","#wallpaper_layout_scheme_3");
+		$(formFields[currentField - 1]).delay(300).fadeIn(300).animate({
+			'left': '+=60px'
+		}, {
+			duration: 500, 
+			queue: false
+		}, function() {});
+
+		currentField--;
+	});
+
+
+	// Colours swatches based on the data coming in from the
+	// colours schemes in the database.
+	var colorsLocations = $('.swatch-color')
+
+	for(i = 0; i < colorsLocations.length; i++ ) {
+		$(colorsLocations[i]).css("background-color", $(colorsLocations[i]).data("color"));
+	};
 
 
 
-});//doc ready
+	// This function handles user selection of a colour scheme
+	// by filling a hidden form field with the id of the 
+	// swatch that is clicked on by the user.
+	$('.swatch').click(function(env) {
+
+		var clicked = env.currentTarget
+		var swatches = $('.swatch')
+
+		$('#wallpaper_colour_scheme_id').val($(clicked).data('color-scheme-id'));
+		$(clicked).addClass( 'selected-color' );
+
+		for(i = 0; i < swatches.length; i++ ) {
+			console.log(i + $(swatches[i]))
+			if($(swatches[i]).hasClass('selected-color') && (swatches[i] != this)) {
+				$(swatches[i]).removeClass( 'selected-color' );
+			}
+		};
+	});
+
+	// This function handles user selection of a layout scheme
+	// by filling a hidden form field with the id of the 
+	// layout that is clicked on by the user.
+	$('.layout-scheme').click(function(env) {
+
+		var clicked = env.currentTarget
+		var swatches = $('.layout-scheme')
+
+		$('#wallpaper_layout_scheme_id').val($(clicked).data('layout-scheme-id'));
+		$(clicked).addClass( 'selected-layout' );
+
+		for(i = 0; i < swatches.length; i++ ) {
+			console.log(i + $(swatches[i]))
+			if($(swatches[i]).hasClass('selected-layout') && (swatches[i] != this)) {
+				$(swatches[i]).removeClass( 'selected-layout' );
+			}
+		};
+	});
+
+});

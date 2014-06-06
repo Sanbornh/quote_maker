@@ -1,47 +1,69 @@
-<div id="test"></div>
-<div id="container">
-	<div id="arrow_left"><%= image_tag("left.png") %></div>
+<div class="page-wrapper"> 
+	<div class="form-wrapper">
+		<ul class="inner-form">
 
-	<%= form_for @wallpaper do |f| %>
-		<div id="quote_field">
-			<%= f.text_area :quote, placeholder: "Enter a quote" %>
-		</div>
+			<li class="arrow-wrapper">
+				<div class="arrow" id="arrow-left"></div>
+				<div class="arrow-background"></div>
+			</li>
 
-		<div id="colour_field">	
+			<li class="form-elements">
+				<%= form_for @wallpaper do |f| %>
+				<div class="form-element" id="quote-box-wrapper">
+					<%= f.text_area :quote, placeholder: "True friends stab you in the front." %>		
+				</div>
 
-			<div id="swatch_wrapper"> 
-				<%= f.radio_button :colour_scheme_id, @colour_schemes[0].id %>
-				<label for="wallpaper_colour_scheme_id_<%= @colour_schemes[0].id %>" id="first"></label>
+				<div class="form-element" id="citation-box-wrapper">
+					<%= f.text_field :citation, placeholder: "Oscar Wilde" %>		
+				</div>
+
+				<div class="form-element" id="swatches-wrapper">
+
+					<div id="hidden-colour-field">
+						<%= f.hidden_field :colour_scheme_id, value: 1 %>
+					</div>
+
+					<div class="swatch" data-color-scheme-id=<%= @colour_schemes[0].id %>>
+						<div class="swatch-color" data-color=<%= @colour_schemes[0].font %>></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[0].highlight %>></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[0].background %>></div>
+					</div>
+
+					<div class="swatch" data-color-scheme-id=<%= @colour_schemes[1].id %>>
+						<div class="swatch-color" data-color=<%= @colour_schemes[1].font %>></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[1].highlight %>></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[1].background %>></div>
+					</div>
+
+					<div class="swatch" data-color-scheme-id=<%= @colour_schemes[2].id %>>
+						<div class="swatch-color" data-color=<%= @colour_schemes[2].font %>></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[2].highlight %>></div>
+						<div class="swatch-color" data-color=<%= @colour_schemes[2].background %>></div>
+					</div>	
+
+				</div>
+
+				<div class="form-element" id="layout-thumbs-wrapper">
+
+					<div id="hidden-layout-field">
+						<%= f.hidden_field :layout_scheme_id, value: 1 %>
+					</div>
 				
-				<%= f.radio_button :colour_scheme_id, @colour_schemes[1].id %>
-				<label for="wallpaper_colour_scheme_id_<%= @colour_schemes[1].id %>" id="second"></label>
-				
-				<%= f.radio_button :colour_scheme_id, @colour_schemes[2].id %>
-				<label for="wallpaper_colour_scheme_id_<%= @colour_schemes[2].id %>" id="third"></label>
-			</div>
-		</div>
+					<div class="layout-scheme" data-layout-scheme-id="1">1</div>
+					<div class="layout-scheme" data-layout-scheme-id="2">2</div>
+					<div class="layout-scheme" data-layout-scheme-id="3">3</div>
+					
+				</div>	
 
-		<div id="layout_field">
-			<div id="layout_radios">
-				
-				<%= f.radio_button :layout_scheme_id, @layout_schemes[0].id %>
-				<label for="wallpaper_layout_scheme_id_<%= @layout_schemes[0].id %>"></label>
-				
-				<%= f.radio_button :layout_scheme_id, @layout_schemes[1].id %>
-				<label for="wallpaper_layout_scheme_id_<%= @layout_schemes[1].id %>"></label>
-				
-				<%#= f.radio_button :layout_scheme_id, @layout_schemes[2].id %>
-				<!-- <label for="wallpaper_layout_scheme_id_<%# @layout_schemes[2].id %>"></label> -->
+				<% end %>
+			</li>
 
-			</div>
-			
+			<li class="arrow-wrapper">
+				<div class="arrow" id="arrow-right"></div>
+				<div class="arrow-background"></div>
+			</li>
 
-		</div>
-		
-		<div id="submit_field">
-			<%= f.submit "Create", id: "preview" %>
-		</div>	
-	<% end %>
-	
-	<div id="arrow_right"><%= image_tag("right.png") %></div>
+		</ul>
+	</div>
 </div>
+
