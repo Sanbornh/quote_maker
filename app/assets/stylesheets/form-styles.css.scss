@@ -59,3 +59,15 @@ textarea:focus, input:focus, .selected-color, .selected-layout {
 	border: 2px solid $dark-grey;
 }
 
+// ---- SUBMIT BUTTON ---- \\
+
+#submit-button {
+	height: 50%;
+	width: 50%;
+	@include center-vert-and-hor;
+}
+
+
+
+
+
