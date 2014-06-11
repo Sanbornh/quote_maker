@@ -30,7 +30,7 @@ class WallpapersController < ApplicationController
 
 	private
 	def wallpaper_params
-		params.require(:wallpaper).permit(:quote, :colour_scheme_id, :layout_scheme_id)
+		params.require(:wallpaper).permit(:quote, :colour_scheme_id, :layout_scheme_id, :citation)
 	end
 
 end
