@@ -98,6 +98,7 @@ class Wallpaper < ActiveRecord::Base
   		@line.draw(@canvas)
   	end
   end
+
 	# Note that it's necessary to store the background 
 	# color in a local variable and NOT an instance variable
 	# so that it is scoped correctly when called in block!!
@@ -119,7 +120,7 @@ class Wallpaper < ActiveRecord::Base
 	end
 
 	def establish_connection_to_s3
-		@s3 = AWS::S3.new(
+		@s3 = AWS::S3.new (
 		  access_key_id:     S3_CREDENTIALS["access_key_id"],
 		  secret_access_key: S3_CREDENTIALS["secret_access_key"],
 		  region: "us-west-2"
