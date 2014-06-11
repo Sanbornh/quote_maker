@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
 
   has_many :wallpapers
 
-  validates :email, uniqueness: true
   has_many :authentications, :dependent=>:destroy
+  # validates :email, uniqueness: true
 end

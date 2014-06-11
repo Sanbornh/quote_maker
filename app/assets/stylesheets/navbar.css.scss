@@ -2,8 +2,9 @@
 	position: absolute;
 	top: 2%;
 	right: 2%;
+	
 
-	a, a:visited, a:link, a:active {
+	a, a:visited, a:link, a:active, p {
 		color: $greyed-out;	
 		text-decoration: none;
 	}
