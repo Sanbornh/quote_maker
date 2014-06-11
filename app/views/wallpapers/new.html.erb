@@ -1,7 +1,8 @@
 <div class="page-wrapper"> 
 	<div class="form-wrapper">
 		<ul class="inner-form">
-
+			
+			<!-- LEFT ARROW -->
 			<li class="arrow-wrapper">
 				<div class="arrow" id="arrow-left"></div>
 				<div class="arrow-background"></div>
@@ -9,40 +10,34 @@
 
 			<li class="form-elements">
 				<%= form_for @wallpaper do |f| %>
+				
+				<!-- QUOTE-BOX -->
 				<div class="form-element" id="quote-box-wrapper">
 					<%= f.text_area :quote, placeholder: "True friends stab you in the front." %>		
 				</div>
 
+				<!-- CITATION BOX -->
 				<div class="form-element" id="citation-box-wrapper">
 					<%= f.text_field :citation, placeholder: "Oscar Wilde" %>		
 				</div>
-
+					
+				<!-- COLOUR SWATCHES -->
 				<div class="form-element" id="swatches-wrapper">
 
 					<div id="hidden-colour-field">
 						<%= f.hidden_field :colour_scheme_id, value: 1 %>
 					</div>
-
-					<div class="swatch" data-color-scheme-id=<%= @colour_schemes[0].id %>>
-						<div class="swatch-color" data-color=<%= @colour_schemes[0].font %>></div>
-						<div class="swatch-color" data-color=<%= @colour_schemes[0].highlight %>></div>
-						<div class="swatch-color" data-color=<%= @colour_schemes[0].background %>></div>
-					</div>
-
-					<div class="swatch" data-color-scheme-id=<%= @colour_schemes[1].id %>>
-						<div class="swatch-color" data-color=<%= @colour_schemes[1].font %>></div>
-						<div class="swatch-color" data-color=<%= @colour_schemes[1].highlight %>></div>
-						<div class="swatch-color" data-color=<%= @colour_schemes[1].background %>></div>
-					</div>
-
-					<div class="swatch" data-color-scheme-id=<%= @colour_schemes[2].id %>>
-						<div class="swatch-color" data-color=<%= @colour_schemes[2].font %>></div>
-						<div class="swatch-color" data-color=<%= @colour_schemes[2].highlight %>></div>
-						<div class="swatch-color" data-color=<%= @colour_schemes[2].background %>></div>
-					</div>	
-
+					
+					<% 0.upto(@colour_schemes.length - 1) do |i| %>
+						<div class="swatch" data-color-scheme-id=<%= @colour_schemes[i].id %>>
+							<div class="swatch-color" data-color=<%= @colour_schemes[i].font %>></div>
+							<div class="swatch-color" data-color=<%= @colour_schemes[i].highlight %>></div>
+							<div class="swatch-color" data-color=<%= @colour_schemes[i].background %>></div>
+						</div>
+					<% end %>	
 				</div>
-
+				
+				<!-- LAYOUTS -->
 				<div class="form-element" id="layout-thumbs-wrapper">
 
 					<div id="hidden-layout-field">
@@ -54,16 +49,16 @@
 					<div class="layout-scheme" data-layout-scheme-id="3">3</div>
 					
 				</div>	
-
+				
+				<!-- SUBMIT BUTTON -->
 				<div class="form-element" id="generate-wrapper">
-					<!-- <p>...</p> -->
 					<%= f.submit id: "submit-button" %>
-
 				</div>
 
 				<% end %>
 			</li>
-
+			
+			<!-- RIGHT ARROW -->
 			<li class="arrow-wrapper">
 				<div class="arrow" id="arrow-right"></div>
 				<div class="arrow-background"></div>
