@@ -9,7 +9,6 @@ var formFields = [
 
 $( document ).ready(function(){
 
-
 	// Advance form field by one step
 	$("#arrow-right").click(function() {
 		if(currentField != formFields.length - 1) {
@@ -52,7 +51,6 @@ $( document ).ready(function(){
 		}
 	});
 
-
 	// Colours swatches based on the data coming in from the
 	// colours schemes in the database.
 	var colorsLocations = $('.swatch-color')
@@ -60,8 +58,6 @@ $( document ).ready(function(){
 	for(i = 0; i < colorsLocations.length; i++ ) {
 		$(colorsLocations[i]).css("background-color", $(colorsLocations[i]).data("color"));
 	};
-
-
 
 	// This function handles user selection of a colour scheme
 	// by filling a hidden form field with the id of the 
