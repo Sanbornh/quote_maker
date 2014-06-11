@@ -57,7 +57,7 @@ textarea {
 .form-element {
 	@include center-vert-and-hor;
 
-	&:nth-child(3), &:nth-child(4), &:nth-child(5) {
+	&:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6) {
 		display: none;
 		right: -60px; // -60 because they need room to slide in from right.
 	}
@@ -72,7 +72,7 @@ textarea {
 		}
 	}
 
-	&:nth-child(4), &:nth-child(5) {
+	&:nth-child(4), &:nth-child(5), &:nth-child(6) {
 		width: 50%;
 		height: 70%;
 	}

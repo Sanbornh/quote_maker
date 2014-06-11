@@ -3,7 +3,8 @@ var formFields = [
 	"#quote-box-wrapper",
 	"#citation-box-wrapper",
 	"#swatches-wrapper",
-	"#layout-thumbs-wrapper"
+	"#layout-thumbs-wrapper",
+	"#generate-wrapper"
 ];
 
 $( document ).ready(function(){
