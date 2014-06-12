@@ -22,6 +22,11 @@ class WallpapersController < ApplicationController
 		@wallpaper = Wallpaper.find(params[:id])
 	end
 
+	def download_set
+		file = Tempfile.new("temp-file-#{current_user.id}")
+
+	end
+
 	def destroy
 		@wallpaper = Wallpaper.find(params[:id])
 		@wallpaper.destroy
