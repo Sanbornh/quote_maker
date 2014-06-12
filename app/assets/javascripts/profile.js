@@ -20,6 +20,15 @@ $( document ).ready(function(){
 		};
 
 		$('#ids').val(wallpaperIds);
-	});
 
+		if(wallpaperIds) {
+			$('#download-link').fadeIn('slow');
+		}
+
+		if(wallpaperIds.length == 0) {
+			$('#download-link').fadeOut('slow');
+		}
+
+
+	});
 });

@@ -1,4 +1,3 @@
-<!-- <div id="title_bar"><h1><%# @user.name %></h1></div> -->
 <div class="thumbs-wrapper">
 	<% @user.wallpapers.each do |wallpaper|  %>
 		<div class="wallpaper-thumbs">
@@ -9,7 +8,3 @@
 	<% end %>
 </div>
 
-<%= form_tag( '/download/:data', :method => :get ) do %>
-	<%= hidden_field_tag(:ids, value: "") %>
-	<%= submit_tag("Download") %>
-<% end %>

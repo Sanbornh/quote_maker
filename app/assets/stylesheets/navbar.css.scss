@@ -6,6 +6,29 @@
 
 .nav-buttons {
 	width: 140px;
+	height: 24px;
 	float: right;
 	text-align: center;
+	line-height: 1.5em;
+}
+
+#download-link {
+	display:none;
+}
+
+form {
+	input:nth-child(3) {
+		border: none;
+		background-color: $background;
+		font-size: 1em;
+		height: 100%;
+		width: 100%;
+		border:none;
+		color: $greyed-out;
+		cursor: pointer;
+	}
+
+	input:nth-child(3):hover {
+		color: $dark-grey;
+	}
 }

@@ -5,4 +5,10 @@
 	<% else %>
 		<div class="nav-buttons"><p><%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %></p></div>	
 	<% end %>
+	<div class="nav-buttons" id="download-link">
+		<%= form_tag( '/download/:data', :method => :get ) do %>
+			<%= hidden_field_tag(:ids, value: "") %>
+			<%= submit_tag("Download") %>
+		<% end %>
+	</div>
 </div>
