@@ -26,3 +26,16 @@ a, a:visited, a:link, a:active, p {
 a:hover {
 	color: $dark-grey;
 }
+
+// THESE APPLY SPECIFICALLY BUT DO NOT WARRANT
+// THEIR OWN FILE!
+
+.img-wrapper {
+	width: 100%;
+	height: 100%;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
