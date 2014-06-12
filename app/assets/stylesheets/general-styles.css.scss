@@ -40,3 +40,33 @@ a:hover {
 	height: 100%;
 	}
 }
+
+// OVERLAY STUFF!!
+
+.overlay-wrapper {
+	width: 100%;
+	height: 100%;
+	// display:none;
+}
+
+.overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: $dark-grey;
+	opacity: 0.5;
+	z-index: 100;
+	display:none;
+}
+
+.info-box {
+	width: 500px;
+	height: 500px;
+	position: absolute;
+	@include center-vert-and-hor;
+	background-color: $background;
+	opacity: 1;
+	z-index: 101;
+	border: 4px solid $dark-grey;
+	display:none;
+}
