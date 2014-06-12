@@ -19,5 +19,13 @@ $( document ).ready(function(){
 			$(this).removeClass( 'selected-thumb' );
 		};
 	});
-	
+
+	$('#download').click(function(){
+		var theUrl = '/download/' + wallpaperIds;
+
+		$.ajax({
+			url: theUrl
+		});
+	});
+
 });

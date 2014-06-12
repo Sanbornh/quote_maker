@@ -17,7 +17,7 @@ QuoteMaker::Application.routes.draw do
 
   resources :sessions, only: [:new, :create]
   resources :wallpapers, only: [:new, :create, :destroy, :show]
-  get "download" => "wallpapers#download_set"
+  get "/download/:data" => "wallpapers#download_set"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
