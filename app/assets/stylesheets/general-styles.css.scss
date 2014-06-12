@@ -17,3 +17,12 @@ html, body, .page-wrapper {
 .page-wrapper {
 	background-color: $background;
 }
+
+a, a:visited, a:link, a:active, p {
+	color: $greyed-out;	
+	text-decoration: none;
+}
+
+a:hover {
+	color: $dark-grey;
+}
