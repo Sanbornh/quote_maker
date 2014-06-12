@@ -4,11 +4,11 @@ QuoteMaker::Application.routes.draw do
   
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Facebook
-  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
 
-  get "logout"=>"sessions#destroy", :as=>"logout"
-  get "login"=>"sessions#new", :as=>"login"
-  get "signup"=>"users#new", :as=>"signup"
+  get "logout"=>"sessions#destroy", as: "logout"
+  get "login"=>"sessions#new", as: "login"
+  get "signup"=>"users#new", as: "signup"
 
   
   resources :users, only: [:new, :create,] do
@@ -17,8 +17,7 @@ QuoteMaker::Application.routes.draw do
 
   resources :sessions, only: [:new, :create]
   resources :wallpapers, only: [:new, :create, :destroy, :show]
-  get "/download/:data" => "wallpapers#download_set"
-
+  get "/download/:data" => "wallpapers#download_set", as: "download"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

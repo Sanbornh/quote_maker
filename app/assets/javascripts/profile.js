@@ -18,14 +18,8 @@ $( document ).ready(function(){
 			wallpaperIds.splice(index, 1);
 			$(this).removeClass( 'selected-thumb' );
 		};
-	});
 
-	$('#download').click(function(){
-		var theUrl = '/download/' + wallpaperIds;
-
-		$.ajax({
-			url: theUrl
-		});
+		$('#ids').val(wallpaperIds);
 	});
 
 });

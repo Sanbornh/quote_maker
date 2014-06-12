@@ -10,5 +10,7 @@
 	<% end %>
 </div>
 
-<%# link_to "DOWNLOAD", download_path %>
-<div id="download">DOWNLOAD</div>
+<%= form_tag( '/download/:data', :method => :get ) do %>
+	<%= hidden_field_tag(:ids, value: "") %>
+	<%= submit_tag("Download") %>
+<% end %>

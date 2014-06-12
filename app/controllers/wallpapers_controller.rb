@@ -26,17 +26,18 @@ require 'zip'
 	end
 
 	def download_set
-		wallpaper_list = current_user.wallpapers.to_a
-		file = Tempfile.new("temp-file-#{current_user.id}")
+		wallpaper_ids = params[:ids].split(",")
+		wallpaper_list = Wallpaper.find(wallpaper_ids)
 
-		Zip::OutputStream.open(file.path) do |io|
+		@file = Tempfile.new("temp-file-#{current_user.id}")
+
+		Zip::OutputStream.open(@file.path) do |io|
 			wallpaper_list.each do |wallpaper|
 				io.put_next_entry("wallpaper-#{wallpaper.id}.jpg")
 				io.write open(wallpaper.url).read
 			end
 		end
-
-		send_file file.path, type: 'application/zip', disposition: 'attachment', filename: "wallpaper_collection.zip"
+		send_file @file.path, type: 'application/zip', disposition: 'attachment', filename: "wallpaper_collection.zip"
 	end
 
 	def destroy
