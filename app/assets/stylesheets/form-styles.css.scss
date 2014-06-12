@@ -44,7 +44,7 @@ textarea, textarea:focus, input, input:focus {
 	font-size: 2em;
 }
 
-textarea:focus, input:focus, .selected-color, .selected-layout {
+textarea:focus, input:focus, .selected-color, .selected-layout, .selected-thumb {
 	outline: 2px solid $orange;
 }
 

@@ -13,3 +13,4 @@
 
 //= require jquery
 //= require new
+//= require profile
