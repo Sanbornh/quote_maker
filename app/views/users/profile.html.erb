@@ -1,9 +1,9 @@
-<div id="title_bar"><h1><%= @user.name %></h1></div>
+<!-- <div id="title_bar"><h1><%# @user.name %></h1></div> -->
 
 <% @user.wallpapers.each do |wallpaper|  %>
-<div class="my_wallpapers">
-	<%= link_to (image_tag wallpaper.thumb), wallpaper_path(wallpaper.id) %>
-	<a href="<%=wallpaper.url%>" download="wallpaper<%= wallpaper.id %>.jpg">Download</a>
-	<%= link_to 'Delete', wallpaper_path(wallpaper.id), confirm: "Delete this wallpaper?", method: :delete %>
-</div>
+	<div class="my_wallpapers">
+		<%= link_to (image_tag wallpaper.thumb), wallpaper_path(wallpaper.id) %>
+		<a href="<%=wallpaper.url%>" download="wallpaper<%= wallpaper.id %>.jpg">Download</a>
+		<%= link_to 'Delete', wallpaper_path(wallpaper.id), confirm: "Delete this wallpaper?", method: :delete %>
+	</div>
 <% end %>
