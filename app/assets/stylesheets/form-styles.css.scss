@@ -62,8 +62,8 @@ textarea:focus, input:focus, .selected-color, .selected-layout, .selected-thumb 
 // ---- SUBMIT BUTTON ---- \\
 
 #submit-button {
-	height: 50%;
-	width: 50%;
+	height: 100px;
+	width: 300px;;
 	@include center-vert-and-hor;
 }
 
