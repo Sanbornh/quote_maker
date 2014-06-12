@@ -7,9 +7,10 @@ class Wallpaper < ActiveRecord::Base
 	def create_image
 		init_variables
 		draw_background
-		set_styling
+		set_quote_styling
 		prep_quote
 		establish_coordinates
+		set_citation_styling
 		draw_lines
 		composite_image
 		save_image
@@ -25,6 +26,7 @@ class Wallpaper < ActiveRecord::Base
 		@canvas_width = 2880
 		@canvas_height = 1800
 		@quote = self.quote
+		@citation = self.citation
 		@highlight = self.colour_scheme.highlight
 		@quote_marks = self.layout_scheme.quote_marks 
 		@font_size = self.layout_scheme.font_size.to_i
@@ -41,11 +43,18 @@ class Wallpaper < ActiveRecord::Base
 		@canvas.new_image(@canvas_width, @canvas_height) { self.background_color = color }
 	end
 
-	def set_styling
+	def set_quote_styling
 		@text = Magick::Draw.new
 		@text.font = "#{Rails.root}/lib/fonts/#{self.layout_scheme.font}.ttf"
 		@text.pointsize = @font_size
 		@text.align = Magick::LeftAlign
+	end
+
+	def set_citation_styling
+		@citation_params = Magick::Draw.new
+		@citation_params.font = "#{Rails.root}/lib/fonts/#{self.layout_scheme.font}.ttf"
+		@citation_params.pointsize = @font_size
+		@citation_params.align = Magick::LeftAlign
 	end
 
 	def prep_quote
@@ -104,11 +113,14 @@ class Wallpaper < ActiveRecord::Base
 	# so that it is scoped correctly when called in block!!
 	def composite_image
 		color = self.colour_scheme.font
+		highlight_color = self.colour_scheme.highlight
 		@text.annotate(@canvas, 0, 0, @x, @y, @quote) { self.fill = color }
 
 		if @quote_marks
 			@text.annotate(@canvas, 0, 0, (@x - 28), @y, "“") {self.fill = color }
 		end
+
+		@citation_params.annotate(@canvas, 0, 0, @x , @y + @quote_height, @citation) {self.fill = highlight_color}
 	end
 
 	def save_image
