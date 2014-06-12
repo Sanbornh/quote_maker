@@ -7,6 +7,27 @@ var formFields = [
 	"#generate-wrapper"
 ];
 
+// Currently handles selecting an attribute by A) highlighting the thing clicked on
+// and B) adding it's value to a hidden form.
+// This should likely be broken into several functions.
+function selectWallpaperAttribute(divOptions, formField, formValue, outlineClass) {
+	$(divOptions).click(function(env) {
+
+		var clicked = env.currentTarget
+		var swatches = $(divOptions)
+
+		$(formField).val($(clicked).data(formValue));
+		$(clicked).addClass( outlineClass );
+
+		for(i = 0; i < swatches.length; i++ ) {
+			console.log(i + $(swatches[i]))
+			if($(swatches[i]).hasClass(outlineClass) && (swatches[i] != this)) {
+				$(swatches[i]).removeClass(outlineClass);
+			}
+		};
+	});
+}
+
 $( document ).ready(function(){
 
 	// Advance form field by one step
@@ -59,46 +80,7 @@ $( document ).ready(function(){
 		$(colorsLocations[i]).css("background-color", $(colorsLocations[i]).data("color"));
 	};
 
-	// This function handles user selection of a colour scheme
-	// by filling a hidden form field with the id of the 
-	// swatch that is clicked on by the user.
-	// It also currently highlights the swatch. This should probably
-	// get pulled out into another function.
-	$('.swatch').click(function(env) {
-
-		var clicked = env.currentTarget
-		var swatches = $('.swatch')
-
-		$('#wallpaper_colour_scheme_id').val($(clicked).data('color-scheme-id'));
-		$(clicked).addClass( 'selected-color' );
-
-		for(i = 0; i < swatches.length; i++ ) {
-			console.log(i + $(swatches[i]))
-			if($(swatches[i]).hasClass('selected-color') && (swatches[i] != this)) {
-				$(swatches[i]).removeClass( 'selected-color' );
-			}
-		};
-	});
-
-	// This function handles user selection of a layout scheme
-	// by filling a hidden form field with the id of the 
-	// layout that is clicked on by the user.
-	// It also currently highlights the layout. This should probably
-	// get pulled out into another function.
-	$('.layout-scheme').click(function(env) {
-
-		var clicked = env.currentTarget
-		var swatches = $('.layout-scheme')
-
-		$('#wallpaper_layout_scheme_id').val($(clicked).data('layout-scheme-id'));
-		$(clicked).addClass( 'selected-layout' );
-
-		for(i = 0; i < swatches.length; i++ ) {
-			console.log(i + $(swatches[i]))
-			if($(swatches[i]).hasClass('selected-layout') && (swatches[i] != this)) {
-				$(swatches[i]).removeClass( 'selected-layout' );
-			}
-		};
-	});
-
+	selectWallpaperAttribute('.swatch', '#wallpaper_colour_scheme_id', 'color-scheme-id', 'selected-color');
+	selectWallpaperAttribute('.layout-scheme', '#wallpaper_layout_scheme_id', 'layout-scheme-id', 'selected-layout');
+	
 });
