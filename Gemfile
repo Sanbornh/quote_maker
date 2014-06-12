@@ -9,10 +9,10 @@ gem 'jbuilder', '~> 1.2' # Build JSON APIs with ease. Read more: https://github.
 gem 'pg' # Postgres
 gem 'rails', '4.0.4' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rmagick', '2.13.2' # All the image editting is done through rmagick
+gem 'rubyzip', '>= 1.0.0' # For zipping shit up
 gem 'sass-rails', '~> 4.0.2' # Use SCSS for stylesheets
 gem 'sorcery' # Used for authentication
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
-gem 'zip-zip' # For zipping shit up
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

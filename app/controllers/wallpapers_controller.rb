@@ -1,5 +1,8 @@
 class WallpapersController < ApplicationController
 
+require 'rubygems'
+require 'zip'
+
 	def new
 		@wallpaper = Wallpaper.new
 		@colour_schemes = ColourScheme.all
@@ -23,8 +26,16 @@ class WallpapersController < ApplicationController
 	end
 
 	def download_set
-		file = Tempfile.new("temp-file-#{current_user.id}")
 
+		file = Tempfile.new("temp-file-#{current_user.id}")
+		Zip::OutputStream.open(file.path) do |io|
+			io.put_next_entry("test.txt")
+			io.write "Hello World!"
+		end
+
+		send_file file.path, type: 'application/zip', disposition: 'attachment', filename: "Test.zip"
+
+		binding.pry
 	end
 
 	def destroy
