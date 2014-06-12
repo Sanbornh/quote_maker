@@ -72,9 +72,14 @@ textarea {
 		}
 	}
 
-	&:nth-child(4), &:nth-child(5), &:nth-child(6) {
+	&:nth-child(4), &:nth-child(6) {
 		width: 50%;
 		height: 70%;
+	}
+
+	&:nth-child(5) {
+		width: 81%;
+		height: 187px;
 	}
 }
 
@@ -85,10 +90,11 @@ textarea {
 }
 
 .layout-scheme {
-	width: 33%;
+	width: 300px;
 	height: 100%;
 	float: left;
 	text-align: center;
+	margin: 1%;
 }
 
 // --------- SWATCHES ---------- \\
@@ -109,8 +115,9 @@ textarea {
 // ------- SUBMIT BUTTON ------- \\
 
 #submit-button {
-	background-color: $greyed-out;
+	background-color: $orange;
 	color: $dark-grey;
+	border: none;
 }
 
 
