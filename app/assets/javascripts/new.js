@@ -10,7 +10,9 @@ var formFields = [
 // Currently handles selecting an attribute by A) highlighting the thing clicked on
 // and B) adding it's value to a hidden form.
 // This should likely be broken into several functions.
-function selectWallpaperAttribute(divOptions, formField, formValue, outlineClass) {
+$.fn.selectWallpaperAttribute = function(formField, formValue, outlineClass){
+	var divOptions = this;
+
 	$(divOptions).click(function(env) {
 
 		var clicked = env.currentTarget
@@ -20,13 +22,13 @@ function selectWallpaperAttribute(divOptions, formField, formValue, outlineClass
 		$(clicked).addClass( outlineClass );
 
 		for(i = 0; i < swatches.length; i++ ) {
-			console.log(i + $(swatches[i]))
 			if($(swatches[i]).hasClass(outlineClass) && (swatches[i] != this)) {
 				$(swatches[i]).removeClass(outlineClass);
 			}
 		};
 	});
-}
+};
+
 
 $( document ).ready(function(){
 
@@ -80,7 +82,7 @@ $( document ).ready(function(){
 		$(colorsLocations[i]).css("background-color", $(colorsLocations[i]).data("color"));
 	};
 
-	selectWallpaperAttribute('.swatch', '#wallpaper_colour_scheme_id', 'color-scheme-id', 'selected-color');
-	selectWallpaperAttribute('.layout-scheme', '#wallpaper_layout_scheme_id', 'layout-scheme-id', 'selected-layout');
+	$('.swatch').selectWallpaperAttribute('#wallpaper_colour_scheme_id', 'color-scheme-id', 'selected-color');
+	$('.layout-scheme').selectWallpaperAttribute('#wallpaper_layout_scheme_id', 'layout-scheme-id', 'selected-layout');
 	
 });
