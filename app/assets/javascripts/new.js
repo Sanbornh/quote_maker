@@ -62,6 +62,8 @@ $( document ).ready(function(){
 	// This function handles user selection of a colour scheme
 	// by filling a hidden form field with the id of the 
 	// swatch that is clicked on by the user.
+	// It also currently highlights the swatch. This should probably
+	// get pulled out into another function.
 	$('.swatch').click(function(env) {
 
 		var clicked = env.currentTarget
@@ -81,6 +83,8 @@ $( document ).ready(function(){
 	// This function handles user selection of a layout scheme
 	// by filling a hidden form field with the id of the 
 	// layout that is clicked on by the user.
+	// It also currently highlights the layout. This should probably
+	// get pulled out into another function.
 	$('.layout-scheme').click(function(env) {
 
 		var clicked = env.currentTarget
