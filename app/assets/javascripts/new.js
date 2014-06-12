@@ -29,7 +29,6 @@ $.fn.selectWallpaperAttribute = function(formField, formValue, outlineClass){
 	});
 };
 
-
 $( document ).ready(function(){
 
 	// Advance form field by one step
