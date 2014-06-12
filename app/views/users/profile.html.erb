@@ -2,9 +2,8 @@
 <div class="thumbs-wrapper">
 	<% @user.wallpapers.each do |wallpaper|  %>
 		<div class="wallpaper-thumbs">
-			<div class="wallpaper-img" data-wallpaper-id=<%= wallpaper.id %>><img src=<%= wallpaper.thumb %>></div>
-			<!-- <div><%#= link_to (image_tag wallpaper.thumb), wallpaper_path(wallpaper.id) %></div> -->
-			<p><a href="<%=wallpaper.url%>" download="wallpaper<%= wallpaper.id %>.jpg">Download</a><p>
+			<div class="wallpaper-img" data-wallpaper-id=<%= wallpaper.id %>><img src=<%= wallpaper.thumb %>></div>	
+			<p><%= link_to 'Preview', wallpaper_path(wallpaper.id) %></p>
 			<p><%= link_to 'Delete', wallpaper_path(wallpaper.id), confirm: "Delete this wallpaper?", method: :delete %></p>
 		</div>
 	<% end %>
