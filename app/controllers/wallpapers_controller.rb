@@ -35,7 +35,6 @@ require 'open-uri'
 		Zip::OutputStream.open(@file.path) do |io|
 			wallpaper_list.each do |wallpaper|
 				io.put_next_entry("wallpaper-#{wallpaper.id}.jpg")
-				binding.pry
 				io.write open(wallpaper.url).read
 			end
 		end
