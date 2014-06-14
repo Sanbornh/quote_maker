@@ -14,6 +14,10 @@ gem 'sass-rails', '~> 4.0.2' # Use SCSS for stylesheets
 gem 'sorcery' # Used for authentication
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
+group :production do 
+	gem 'rails_12factor'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
