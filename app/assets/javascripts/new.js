@@ -1,10 +1,10 @@
 // Currently handles selecting an attribute by A) highlighting the thing clicked on
 // and B) adding it's value to a hidden form.
-// This should likely be broken into two separate functions.
+// Note: This should be refactored into several separate functions.
 $.fn.selectWallpaperAttribute = function (formField, formValue, outlineClass){
 	var divOptions = this;
 
-	divOptions.click(function () {
+	divOptions.click(function() {
 		var clicked = this
 
 		$(formField).val($(clicked).data(formValue)); // Add swatch value to form
@@ -19,13 +19,13 @@ $.fn.selectWallpaperAttribute = function (formField, formValue, outlineClass){
 	});
 };
 
-$( document ).ready(function () {
+$( document ).ready(function() {
 
 	var currentField = 0; 
 	var formFields = $('.form-element');
 
 	// Advance form field by one step
-	$("#arrow-right").click(function () {
+	$("#arrow-right").click(function() {
 		if(currentField !== formFields.length - 1) {
 			$(formFields[currentField]).fadeOut(300).animate({
 				'left': '-=60px'
@@ -46,7 +46,7 @@ $( document ).ready(function () {
 	});
 
 	// Revert form field by one step
-	$("#arrow-left").click(function () {
+	$("#arrow-left").click(function() {
 		if(currentField !== 0 ) {
 			$(formFields[currentField]).fadeOut(300).animate({
 				'right': '-=60px'
