@@ -15,7 +15,7 @@ gem 'sorcery' # Used for authentication
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
 group :production do 
-	gem 'rails_12factor'
+	gem 'rails_12factor' # For deploying to Heroku
 end
 
 group :doc do
