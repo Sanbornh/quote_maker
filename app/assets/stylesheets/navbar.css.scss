@@ -1,34 +1,35 @@
 #nav-bar {
-	position: absolute;
-	top: 2%;
-	right: 2%;
+  position: absolute;
+  top: 2%;
+  right: 2%;
 }
 
 .nav-buttons {
-	width: 140px;
-	height: 24px;
-	float: right;
-	text-align: center;
-	line-height: 1.5em;
+  width: 160px;
+  height: 24px;
+  float: right;
+  text-align: center;
+  line-height: 1.5em;
+  cursor: pointer;
 }
 
 #download-link {
-	display:none;
+  display:none;
 }
 
 form {
-	input:nth-child(3) {
-		border: none;
-		background-color: $background;
-		font-size: 1em;
-		height: 100%;
-		width: 100%;
-		border:none;
-		color: $greyed-out;
-		cursor: pointer;
-	}
+  input:nth-child(3) {
+    border: none;
+    background-color: $background;
+    font-size: 1em;
+    height: 100%;
+    width: 100%;
+    border:none;
+    color: $greyed-out;
+    cursor: pointer;
+  }
 
-	input:nth-child(3):hover {
-		color: $dark-grey;
-	}
+  input:nth-child(3):hover {
+    color: $dark-grey;
+  }
 }

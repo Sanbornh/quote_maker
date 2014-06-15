@@ -1,51 +1,51 @@
 // ------ ARROW STYLES ----- \\
 .arrow {
-	border-top: 2px solid $greyed-out;
-	border-left: 2px solid $greyed-out;
+  border-top: 2px solid $greyed-out;
+  border-left: 2px solid $greyed-out;
 }
 
 .arrow:hover {
-	border-color: $dark-grey;
-	cursor: pointer;
+  border-color: $dark-grey;
+  cursor: pointer;
 }
 
 .arrow-wrapper {
 
-	&:nth-child(1) {	
-		.arrow {@include rotate-image(-45deg);}
-	}
+  &:nth-child(1) {  
+    .arrow {@include rotate-image(-45deg);}
+  }
 
-	&:nth-child(3) {	
-		.arrow {@include rotate-image(135deg);}
-	}
+  &:nth-child(3) {  
+    .arrow {@include rotate-image(135deg);}
+  }
 }
 
 .arrow-background {
-	background-color: $background;
-	-webkit-filter: blur(10px);	
+  background-color: $background;
+  -webkit-filter: blur(10px); 
 }
 
 // ---- TEXTBOX INPUT ---- \\
 
 #wallpaper_quote, #wallpaper_citation {
-	border: 2px solid $greyed-out;
-	background-color: $light-grey;
+  border: 2px solid $greyed-out;
+  background-color: $light-grey;
 }
 
 #wallpaper_quote {
-	padding: 2% 0 0 3%;
+  padding: 2% 0 0 3%;
 }
 
 #wallpaper_citation {
-	padding: 2% 0 2% 3%;
+  padding: 2% 0 2% 3%;
 }
 
 textarea, textarea:focus, input, input:focus {
-	font-size: 2em;
+  font-size: 2em;
 }
 
 textarea:focus, input:focus, .selected-color, .selected-layout, .selected-thumb {
-	outline: 2px solid $orange;
+  outline: 2px solid $orange;
 }
 
 // ------ SWATCHES ------ \\
@@ -56,15 +56,15 @@ textarea:focus, input:focus, .selected-color, .selected-layout, .selected-thumb 
 // in db.
 
 .swatch {
-	border: 2px solid $dark-grey;
+  border: 2px solid $dark-grey;
 }
 
 // ---- SUBMIT BUTTON ---- \\
 
 #submit-button {
-	height: 100px;
-	width: 300px;;
-	@include center-vert-and-hor;
+  height: 100px;
+  width: 300px;;
+  @include center-vert-and-hor;
 }
 
 

@@ -2,84 +2,99 @@
 // apply across all pages
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body, .page-wrapper {
-	width: 100%;
-	height: 100%;
-	background-color: $background;
+  width: 100%;
+  height: 100%;
+  background-color: $background;
 }
 
 *, p, h1 {
-	font-family: "Lato", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 h1 {
-	font-size: 1.5em;
+  font-size: 1.5em;
 }
 .page-wrapper {
-	background-color: $background;
+  background-color: $background;
 }
 
 a, a:visited, a:link, a:active, p {
-	color: $greyed-out;	
-	text-decoration: none;
+  color: $greyed-out; 
+  text-decoration: none;
 }
 
 a:hover {
-	color: $dark-grey;
+  color: $dark-grey;
 }
 
 // THESE APPLY SPECIFICALLY BUT DO NOT WARRANT
 // THEIR OWN FILE!
 
 .img-wrapper {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 
-	img {
-		width: 100%;
-	height: 100%;
-	}
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 // OVERLAY STUFF!!
 
 .overlay-wrapper {
-	width: 100%;
-	height: 100%;
-	display:none;
+  width: 100%;
+  height: 100%;
+  display:none;
+  position: fixed;
+  z-index: 100;
 }
 
 .overlay {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	background-color: $dark-grey;
-	opacity: 0.5;
-	z-index: 100;
-	// display:none;
+  width: 100%;
+  height: 100%;
+  background-color: $dark-grey;
+  opacity: 0.5;
 }
 
 .info-box {
-	width: 500px;
-	height: 250px;
-	position: absolute;
-	@include center-vert-and-hor;
-	background-color: $background;
-	opacity: 1;
-	z-index: 101;
-	border: 4px solid $dark-grey;
-	text-align: center;
-	padding: 2%;
+  width: 500px;
+  height: 300px;
+  @include center-vert-and-hor;
+  background-color: $background;
+  opacity: 1;
+  border: 4px solid $dark-grey;
+  text-align: center;
+  padding: 2%;
 
-	li {
-		p {
-			color: $dark-grey;	
-		}
-		
-		margin-top: 10px;
-	}
-	// display:none;
+  p {
+    color: $dark-grey;  
+  }
+
+  li {
+    margin-top: 10px;
+  }
 }
+
+#close-modal {
+  float: right;
+  cursor: pointer;
+  margin-top: -16px;
+  margin-right: -10px;
+}
+
+.content {
+  text-align: left;
+  
+  div {
+    &:nth-child(1) {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
