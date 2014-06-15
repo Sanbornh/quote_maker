@@ -2,8 +2,7 @@
 <html>
 <head>
   <title>QuoteMaker</title>
-	<%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application", media: "all" %>	
   <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
@@ -14,6 +13,7 @@
 	<div class="page-wrapper">
 		<%= yield %>
 	</div>
-	
+
+	<%= javascript_include_tag "application" %>
 </body>
 </html>

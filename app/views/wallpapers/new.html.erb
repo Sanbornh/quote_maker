@@ -8,7 +8,7 @@
     </li>
 
     <li class="form-elements">
-      <%= form_for @wallpaper do |f| %>
+      <%= form_for @wallpaper, html: {name: "wallpaper-form"} do |f| %>
       
       <!-- QUOTE-BOX -->
       <div class="form-element" id="quote-box-wrapper">

@@ -19,6 +19,21 @@ $.fn.selectWallpaperAttribute = function (formField, formValue, outlineClass){
   });
 };
 
+var validator = new FormValidator('wallpaper-form', [{
+  name: 'wallpaper[quote]',
+  rules: 'required'
+}, {
+  name: 'wallpaper[colour_scheme_id]',
+  rules: 'required'
+}, {
+  name: 'wallpaper[layout_scheme_id]',
+  rules: 'required'
+}], function(errors, event) {
+    if (errors.length > 0) {
+      console.log(errors);
+    }
+});
+
 $( document ).ready(function() {
 
   var currentField = 0; 
