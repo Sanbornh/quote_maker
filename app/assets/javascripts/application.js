@@ -12,5 +12,6 @@
 //
 
 //= require jquery
+//= require validate.min
 //= require new
 //= require profile
