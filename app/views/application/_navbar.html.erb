@@ -1,14 +1,15 @@
 <div id="nav-bar">
-	<div class="nav-buttons"><p><%= link_to("New Wallpaper", new_wallpaper_path) %></p></div>
-	<% if current_user %>
-		<div class="nav-buttons"><p><%= link_to("My Profile", profile_users_path) %></p></div>	
-	<% else %>
-		<div class="nav-buttons"><p><%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %></p></div>	
-	<% end %>
-	<div class="nav-buttons" id="download-link">
-		<%= form_tag( '/download/:data', :method => :get ) do %>
-			<%= hidden_field_tag(:ids, value: "") %>
-			<%= submit_tag("Download") %>
-		<% end %>
-	</div>
+  <div class="nav-buttons"><p><%= link_to("New Wallpaper", new_wallpaper_path) %></p></div>
+  <div class="nav-buttons" id="about-button"><p>About</p></div>
+  <% if current_user %>
+    <div class="nav-buttons"><p><%= link_to("My Profile", profile_users_path) %></p></div>  
+  <% else %>
+    <div class="nav-buttons"><p><%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %></p></div> 
+  <% end %>
+  <div class="nav-buttons" id="download-link">
+    <%= form_tag( '/download/:data', :method => :get ) do %>
+      <%= hidden_field_tag(:ids, value: "") %>
+      <%= submit_tag("Download") %>
+    <% end %>
+  </div>
 </div>

@@ -77,4 +77,18 @@ $( document ).ready(function() {
   // Outlines and populates hidden forms with swatch and layout options
   $('.swatch').selectWallpaperAttribute('#wallpaper_colour_scheme_id', 'color-scheme-id', 'selected-color');
   $('.layout-scheme').selectWallpaperAttribute('#wallpaper_layout_scheme_id', 'layout-scheme-id', 'selected-layout');
+
+  // Toggle modal
+  $('#about-button').click(function() {
+    $('.overlay-wrapper').show();
+  });
+
+  $('#close-modal').click(function() {
+    $('.overlay-wrapper').hide();
+  })
+
 });
+
+
+
+
