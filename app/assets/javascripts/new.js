@@ -19,14 +19,18 @@ $.fn.selectWallpaperAttribute = function (formField, formValue, outlineClass){
   });
 };
 
+// Sets validations on the main form
 var validator = new FormValidator('wallpaper-form', [{
   name: 'wallpaper[quote]',
+  display: 'quote',
   rules: 'required'
 }, {
   name: 'wallpaper[colour_scheme_id]',
+  display: 'colour scheme',
   rules: 'required'
 }, {
   name: 'wallpaper[layout_scheme_id]',
+  display: 'layout',
   rules: 'required'
 }], function(errors, event) {
     if (errors.length > 0) {
@@ -34,6 +38,10 @@ var validator = new FormValidator('wallpaper-form', [{
     }
 });
 
+// Define custom error message for failed validations
+validator.setMessage('required', 'Oops, looks like you forgot to enter a %s.')
+
+// Flow starts here 
 $( document ).ready(function() {
 
   var currentField = 0; 
