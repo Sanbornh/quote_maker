@@ -1,21 +1,32 @@
-// Currently handles selecting an attribute by A) highlighting the thing clicked on
-// and B) adding it's value to a hidden form.
-// Note: This should be refactored into several separate functions.
-$.fn.selectWallpaperAttribute = function (formField, formValue, outlineClass){
+// Adds value to a hidden field based on the value
+// of a data-attribute associated with the element passed in.
+// Note that this relies on a standard naming convention 
+// for data attribues of the form data-form-val.
+function addValToForm(field, elem) {
+  var formVal = $(elem).data('form-val');
+  $(field).val(formVal); 
+}
+
+function addOutline(clicked, outlineClass, divOptions) {
+ $(clicked).addClass(outlineClass);            // Outline swatch
+  // Ensure only one swatch is selected at a time
+  for(i = 0; i < divOptions.length; i++) {
+    if($(divOptions[i]).hasClass(outlineClass) && (divOptions[i] !== clicked)) {
+      $(divOptions[i]).removeClass(outlineClass);
+    }
+  };
+}
+
+// To be called on an array. It will populate a form with a value
+// and highlight the selected item.
+$.fn.selectWallpaperAttribute = function (formField, outlineClass){
   var divOptions = this;
 
   divOptions.click(function() {
     var clicked = this
 
-    $(formField).val($(clicked).data(formValue)); // Add swatch value to form
-
-    $(clicked).addClass(outlineClass);            // Outline swatch
-    // Ensure only one swatch is selected at a time
-    for(i = 0; i < divOptions.length; i++) {
-      if($(divOptions[i]).hasClass(outlineClass) && (divOptions[i] !== clicked)) {
-        $(divOptions[i]).removeClass(outlineClass);
-      }
-    };
+    addValToForm(formField, clicked)
+    addOutline(clicked, outlineClass, divOptions)
   });
 };
 
@@ -98,8 +109,8 @@ $( document ).ready(function() {
   };
 
   // Outlines and populates hidden forms with swatch and layout options
-  $('.swatch').selectWallpaperAttribute('#wallpaper_colour_scheme_id', 'color-scheme-id', 'selected-color');
-  $('.layout-scheme').selectWallpaperAttribute('#wallpaper_layout_scheme_id', 'layout-scheme-id', 'selected-layout');
+  $('.swatch').selectWallpaperAttribute('#wallpaper_colour_scheme_id', 'selected-color');
+  $('.layout-scheme').selectWallpaperAttribute('#wallpaper_layout_scheme_id', 'selected-layout');
 
   // Toggle modal
   $('#about-button').click(function() {
