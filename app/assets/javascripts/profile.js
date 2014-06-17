@@ -12,11 +12,11 @@ $( document ).ready(function(){
 
 		if($.inArray(id, wallpaperIds) == -1) {
 			wallpaperIds.push(id);	
-			$(this).addClass( 'selected-thumb' );
+			addOutline(this, 'selected-thumb');
 		} else {
 			var index = wallpaperIds.indexOf(id);
 			wallpaperIds.splice(index, 1);
-			$(this).removeClass( 'selected-thumb' );
+			removeOutline(this, 'selected-thumb');
 		};
 
 		$('#ids').val(wallpaperIds);

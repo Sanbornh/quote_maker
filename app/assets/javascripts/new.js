@@ -24,6 +24,10 @@ function addOutline(elem, outlineClass, optionsArr) {
   }
 }
 
+function removeOutline(elem, outlineClass) {
+  $(elem).removeClass(outlineClass);
+}
+
 // To be called on an array. It will populate a given form field with a value
 // and highlight the selected element with the outlineClass
 $.fn.selectWallpaperAttribute = function (formField, outlineClass){
