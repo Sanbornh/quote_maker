@@ -71,7 +71,7 @@ $( document ).ready(function() {
   var currentField = 0; 
   var formFields = $('.form-element'); // Get all elements with the class 'for-element'
   
-  // Advance form field by one step
+  // Advance form by one field
   $("#arrow-right").click(function() {
     if(currentField !== formFields.length - 1) {
       $(formFields[currentField]).fadeOut(300).animate({
@@ -92,7 +92,7 @@ $( document ).ready(function() {
     }
   });
 
-  // Revert form field by one step
+  // Revert form by one field
   $("#arrow-left").click(function() {
     if(currentField !== 0 ) {
       $(formFields[currentField]).fadeOut(300).animate({
