@@ -69,20 +69,20 @@ validator.setMessage('required', 'Oops, looks like you forgot to enter a %s.')
 $( document ).ready(function() {
 
   var currentField = 0; 
-  var formFields = $('.form-element');
-
+  var formFields = $('.form-element'); // Get all elements with the class 'for-element'
+  
   // Advance form field by one step
   $("#arrow-right").click(function() {
     if(currentField !== formFields.length - 1) {
       $(formFields[currentField]).fadeOut(300).animate({
-        'left': '-=60px'
+        'left' : '-=60px'
       }, {
         duration: 500, 
         queue: false
       });
 
       $(formFields[currentField + 1]).delay(300).fadeIn(300).animate({
-        'right': '+=60px'
+        'right' : '+=60px'
       }, {
         duration: 500, 
         queue: false
