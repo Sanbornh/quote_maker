@@ -1,3 +1,5 @@
+// ----- FUNCTION DEFINITIONS ----- \\
+
 // Adds value to a hidden field based on the value
 // of a data-attribute associated with the element passed in.
 // Note that this relies on a standard naming convention 
@@ -7,18 +9,23 @@ function addValToForm(field, elem) {
   $(field).val(formVal); 
 }
 
-function addOutline(clicked, outlineClass, divOptions) {
- $(clicked).addClass(outlineClass);            // Outline swatch
-  // Ensure only one swatch is selected at a time
-  for(i = 0; i < divOptions.length; i++) {
-    if($(divOptions[i]).hasClass(outlineClass) && (divOptions[i] !== clicked)) {
-      $(divOptions[i]).removeClass(outlineClass);
-    }
-  };
+// Adds an outlineClass to an element. If an array of other 
+// elements is given then this function will ensure that only one 
+// of the elements in the array is selected at at time.
+function addOutline(elem, outlineClass, optionsArr) {
+  $(elem).addClass(outlineClass); 
+
+  if (optionsArr) {
+    for(i = 0; i < optionsArr.length; i++) {
+      if($(optionsArr[i]).hasClass(outlineClass) && (optionsArr[i] !== elem)) {
+        $(optionsArr[i]).removeClass(outlineClass);
+      }
+    };
+  }
 }
 
-// To be called on an array. It will populate a form with a value
-// and highlight the selected item.
+// To be called on an array. It will populate a given form field with a value
+// and highlight the selected element with the outlineClass
 $.fn.selectWallpaperAttribute = function (formField, outlineClass){
   var divOptions = this;
 
@@ -29,6 +36,8 @@ $.fn.selectWallpaperAttribute = function (formField, outlineClass){
     addOutline(clicked, outlineClass, divOptions)
   });
 };
+
+// ----- VALIDATIONS ----- \\
 
 // Sets validations on the main form
 var validator = new FormValidator('wallpaper-form', [{
@@ -52,7 +61,7 @@ var validator = new FormValidator('wallpaper-form', [{
 // Define custom error message for failed validations
 validator.setMessage('required', 'Oops, looks like you forgot to enter a %s.')
 
-// Flow starts here 
+// ----- CONTROL BEGINS HERE ----- \\
 $( document ).ready(function() {
 
   var currentField = 0; 
